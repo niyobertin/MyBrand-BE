@@ -1,16 +1,22 @@
 import { Request } from "express";
 import Blogs from "../models/blogs";
+import joiValidation from "../helper/joi.validation";
 
 //creating a blog
 const createBlogs = async (req:Request) => {
     try{
-        const blogs = new Blogs({
-            title:req.body.title,
-            image:req.body.image,
-            content:req.body.content
-        });
-        await blogs.save();
+        const valid = joiValidation.validateBlogData(req.body);
+        if(valid.error){
+            return false;
+        }else{
+            const blogs = new Blogs({
+                title:req.body.title,
+                image:req.body.image,
+                content:req.body.content
+            });
+            await blogs.save();
         return blogs;
+        }
     }catch(err:any){
         throw new Error(err.message);
     }

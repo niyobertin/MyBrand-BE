@@ -13,15 +13,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const users_service_1 = __importDefault(require("../service/users.service"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const jwt_1 = __importDefault(require("../helper/jwt"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
+        const valid = joi_validation_1.default.validateUsersData(req.body);
         const users = yield users_service_1.default.users_register(req);
-        res.status(201).json({
-            status: 201,
-            message: 'User registtration complete !'
-        });
+        if (valid.error) {
+            res.status(400).json({
+                status: 400,
+                message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message
+            });
+        }
+        else {
+            res.status(201).json({
+                status: 201,
+                message: 'User registtration complete !'
+            });
+        }
     }
     catch (error) {
         res.send(error.message);
@@ -29,6 +40,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const valid = joi_validation_1.default.validateUsersData(req.body);
         const { password } = req.body;
         const user = yield users_service_1.default.userLogin(req);
         if (!user) {
@@ -54,7 +66,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     });
                     res.status(200).json({
                         status: 201,
-                        message: 'User logged in !'
+                        token: accessToken
                     });
                 }
             });
@@ -75,7 +87,7 @@ const userProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     else {
         res.status(200).json({
             status: 200,
-            message: "Profile"
+            message: profile
         });
     }
 });

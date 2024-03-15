@@ -1,12 +1,18 @@
 import { Request,Response } from "express";
 import likes from "../models/like"
+import joiValidation from "../helper/joi.validation";
 const create_likes = async(req:Request) => {
+    const valid = joiValidation.likesValidatin(req.body);
      const id = { _id: req.params.id };
-    const created_likes = new likes({
-        like:req.body.like,
-        blogID:id
-    })
-   await created_likes.save();
+     if(valid.error){
+        return false
+     }else{
+        const created_likes = new likes({
+            like:req.body.like,
+            blogID:id
+        })
+       await created_likes.save();
+     } 
 }
 const fetchlikes = async(req:Request) =>{
     try{

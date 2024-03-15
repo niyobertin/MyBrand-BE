@@ -13,14 +13,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const comet_sercice_1 = __importDefault(require("../service/comet.sercice"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 // //creating a coments
 const createComents = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
+        const valid = joi_validation_1.default.validateCommentData(req.body);
         const coments = yield comet_sercice_1.default.create_coments(req);
-        res.status(201).json({
-            status: 201,
-            message: 'New coment created'
-        });
+        if (valid.error) {
+            res.status(400).json({
+                status: 400,
+                message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message
+            });
+        }
+        else {
+            res.status(201).json({
+                status: 201,
+                message: 'New coment created'
+            });
+        }
     }
     catch (error) {
         res.send(error.message);

@@ -1,14 +1,24 @@
 import { Request,Response } from "express";
 import blogsService from "../service/blog.cervice"
 import blogCervice from "../service/blog.cervice";
+import joiValidation from "../helper/joi.validation";
 
 const create_blogs = async(req:Request,res:Response) => {
     try{
+        const valid = joiValidation.validateBlogData(req.body);
         const blogs = await blogsService.createBlogs(req)
-        res.status(201).json({
-            status:201,
-            message:'New blog created'
-        });
+        if(!blogs){
+            res.status(400).json({
+                status:400,
+                message:valid.error?.message
+            });
+        }else{
+            res.status(201).json({
+                status:201,
+                message:'New blog created'
+            });
+        }
+        
     }catch(error:any){
         res.send(error.message);
     }

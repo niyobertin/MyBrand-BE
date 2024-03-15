@@ -1,26 +1,33 @@
 import { Request } from "express";
 import * as bcrypt from "bcrypt";
 import Users from "../models/user";
+import joiValidation from "../helper/joi.validation";
 
 const users_register = async(req:Request) => {
     try{
+        const valid = joiValidation.validateUsersData(req.body);
         const {username,email,password} = req.body;
-        bcrypt.hash(password,10).then((hash) => {
-            const users = new Users({
-                username:username,
-                email:email,
-                password:hash
+        if(valid.error){
+            return false
+        }else{
+            bcrypt.hash(password,10).then((hash) => {
+                const users = new Users({
+                    username:username,
+                    email:email,
+                    password:hash
+                })
+                users.save();
+                return users;
             })
-            users.save();
-            return users;
-        })
-      
+        }
+        
     }catch(err:any){
         throw new Error(err.message);
     }
 }
 const userLogin = async(req:Request) => {
     try{
+        const valid = joiValidation.validateUsersData(req.body);
         const {email} = req.body;
         const user:any = Users.findOne({email:email});
         if(!user){

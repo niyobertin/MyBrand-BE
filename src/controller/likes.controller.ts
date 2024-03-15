@@ -1,14 +1,23 @@
 import express, {Request, Response} from 'express';
 import likeSercice from "../service/like.service";
-
+import joiValidation from "../helper/joi.validation";
 // //creating a coments
 const createLikes = async(req:Request,res:Response) => {
     try{
+        const valid = joiValidation.likesValidatin(req.body)
         const like = await likeSercice.create_likes(req)
-        res.status(201).json({
-            status:201,
-            message:'New like created'
-        });
+        if(valid.error){
+            res.status(400).json({
+                status:400,
+                message:valid.error?.message
+            });
+        }else{
+            res.status(201).json({
+                status:201,
+                message:'New like created'
+            });
+        }
+       
     }catch(error:any){
         res.send(error.message);
     }

@@ -37,18 +37,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt = __importStar(require("bcrypt"));
 const user_1 = __importDefault(require("../models/user"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const users_register = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const valid = joi_validation_1.default.validateUsersData(req.body);
         const { username, email, password } = req.body;
-        bcrypt.hash(password, 10).then((hash) => {
-            const users = new user_1.default({
-                username: username,
-                email: email,
-                password: hash
+        if (valid.error) {
+            return false;
+        }
+        else {
+            bcrypt.hash(password, 10).then((hash) => {
+                const users = new user_1.default({
+                    username: username,
+                    email: email,
+                    password: hash
+                });
+                users.save();
+                return users;
             });
-            users.save();
-            return users;
-        });
+        }
     }
     catch (err) {
         throw new Error(err.message);
@@ -56,6 +63,7 @@ const users_register = (req) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const userLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const valid = joi_validation_1.default.validateUsersData(req.body);
         const { email } = req.body;
         const user = user_1.default.findOne({ email: email });
         if (!user) {

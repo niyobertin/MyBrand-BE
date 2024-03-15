@@ -13,13 +13,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const like_1 = __importDefault(require("../models/like"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const create_likes = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    const valid = joi_validation_1.default.likesValidatin(req.body);
     const id = { _id: req.params.id };
-    const created_likes = new like_1.default({
-        like: req.body.like,
-        blogID: id
-    });
-    yield created_likes.save();
+    if (valid.error) {
+        return false;
+    }
+    else {
+        const created_likes = new like_1.default({
+            like: req.body.like,
+            blogID: id
+        });
+        yield created_likes.save();
+    }
 });
 const fetchlikes = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {

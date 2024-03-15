@@ -1,12 +1,18 @@
 import { Request,Response } from "express";
 import querries from "../models/querries";
+import joiValidation from "../helper/joi.validation";
 const create_querries = async(req:Request) => {
+    const valid = joiValidation.validateQuerries(req.body);
      const id = { _id: req.params.id };
-    const created_querriess = new querries({
-        visitor:req.body.visitor,
-        message:req.body.message
-    })
-   await created_querriess.save();
+     if(valid.error){
+        return false
+     }else{
+        const created_querriess = new querries({
+            visitor:req.body.visitor,
+            message:req.body.message
+        })
+       await created_querriess.save();
+     }
 }
 const fetch_querries = async(req:Request) =>{
     try{
