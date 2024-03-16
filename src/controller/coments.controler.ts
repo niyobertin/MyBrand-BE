@@ -5,8 +5,8 @@ import joiValidation from "../helper/joi.validation";
 const createComents = async(req:Request,res:Response) => {
     try{
         const valid = joiValidation.validateCommentData(req.body);
-        const coments = await cometSercice.create_coments(req)
-        if(valid.error){
+        const coments = await cometSercice.create_coments(req);
+        if(coments === false){
             res.status(400).json({
                 status:400,
                 message:valid.error?.message

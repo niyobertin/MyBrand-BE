@@ -20,7 +20,7 @@ const createComents = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const valid = joi_validation_1.default.validateCommentData(req.body);
         const coments = yield comet_sercice_1.default.create_coments(req);
-        if (valid.error) {
+        if (coments === false) {
             res.status(400).json({
                 status: 400,
                 message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message

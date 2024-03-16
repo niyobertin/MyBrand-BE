@@ -17,7 +17,7 @@ const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const create_coments = (req) => __awaiter(void 0, void 0, void 0, function* () {
     const valid = joi_validation_1.default.validateCommentData(req.body);
     const id = { _id: req.params.id };
-    if (!valid.error) {
+    if (valid.error) {
         return false;
     }
     else {

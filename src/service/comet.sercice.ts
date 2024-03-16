@@ -4,7 +4,7 @@ import joiValidation from "../helper/joi.validation";
 const create_coments = async(req:Request) => {
     const valid = joiValidation.validateCommentData(req.body);
      const id = { _id: req.params.id };
-     if(!valid.error){
+     if(valid.error){
         return false;
      }else{
         const created_coments = new coments({
