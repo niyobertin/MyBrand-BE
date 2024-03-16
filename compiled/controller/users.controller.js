@@ -21,21 +21,25 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const valid = joi_validation_1.default.validateUsersData(req.body);
         const users = yield users_service_1.default.users_register(req);
-        if (valid.error) {
+        if (users === false) {
             res.status(400).json({
                 status: 400,
+                error: "User exist ",
                 message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message
             });
         }
         else {
             res.status(201).json({
                 status: 201,
-                message: 'User registtration complete !'
+                message: 'User registration complete !'
             });
         }
     }
     catch (error) {
-        res.send(error.message);
+        res.status(400).json({
+            status: 400,
+            error: error.message
+        });
     }
 });
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -77,7 +81,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const userProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const profile = users_service_1.default.gettingLoggedInUser();
+    const profile = yield users_service_1.default.retrieve();
     if (!profile) {
         res.status(400).json({
             status: 400,

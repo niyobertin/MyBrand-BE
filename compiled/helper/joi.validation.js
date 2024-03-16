@@ -58,6 +58,5 @@ exports.default = {
     validateCommentData,
     validateQuerries,
     validateUsersData,
-    likesValidatin,
-    loginValidation
+    likesValidatin
 };

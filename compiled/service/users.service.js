@@ -42,11 +42,15 @@ const users_register = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const valid = joi_validation_1.default.validateUsersData(req.body);
         const { username, email, password } = req.body;
-        if (valid.error) {
+        const registerd_user = yield user_1.default.findOne({ $or: [{ username: username }, { email: email }, { password: password }] });
+        if (registerd_user) {
+            return false;
+        }
+        else if (valid.error) {
             return false;
         }
         else {
-            bcrypt.hash(password, 10).then((hash) => {
+            yield bcrypt.hash(password, 10).then((hash) => {
                 const users = new user_1.default({
                     username: username,
                     email: email,
@@ -77,6 +81,15 @@ const userLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(err.message);
     }
 });
+//Retriving all users
+const retrieve = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        return yield user_1.default.find();
+    }
+    catch (error) {
+        throw new Error(error.message);
+    }
+});
 const gettingLoggedInUser = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const loggedIn = yield user_1.default.find();
@@ -89,5 +102,6 @@ const gettingLoggedInUser = () => __awaiter(void 0, void 0, void 0, function* ()
 exports.default = {
     users_register,
     userLogin,
-    gettingLoggedInUser
+    gettingLoggedInUser,
+    retrieve
 };

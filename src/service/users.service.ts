@@ -7,16 +7,19 @@ const users_register = async(req:Request) => {
     try{
         const valid = joiValidation.validateUsersData(req.body);
         const {username,email,password} = req.body;
-        if(valid.error){
+        const registerd_user = await Users.findOne({$or:[{username:username},{email:email},{password:password}] });
+        if(registerd_user){
+            return false
+        }else if(valid.error){
             return false
         }else{
-            bcrypt.hash(password,10).then((hash) => {
+            await bcrypt.hash(password,10).then((hash) => {
                 const users = new Users({
                     username:username,
-                    email:email,
+                    email:email, 
                     password:hash
                 })
-                users.save();
+               users.save();
                 return users;
             })
         }
@@ -39,6 +42,14 @@ const userLogin = async(req:Request) => {
         throw new Error(err.message)
     }
 }
+//Retriving all users
+const retrieve = async() =>{
+    try{
+        return await Users.find();
+        }catch(error:any){
+        throw new Error(error.message);
+        }
+}
 
 const gettingLoggedInUser = async() => {
     try{
@@ -51,5 +62,6 @@ const gettingLoggedInUser = async() => {
 export default {
     users_register,
     userLogin,
-    gettingLoggedInUser
+    gettingLoggedInUser,
+    retrieve
 }

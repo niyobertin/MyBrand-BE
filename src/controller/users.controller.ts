@@ -7,21 +7,24 @@ import bcrypt from "bcrypt"
 const register = async(req:Request,res:Response) => {
     try{
         const valid = joiValidation.validateUsersData(req.body);
-        const users = await userService.users_register(req)
-        if(valid.error){
-            res.status(400).json({
+        const users = await userService.users_register(req);
+        if(users === false){
+             res.status(400).json({
                 status:400,
+                error:"User exist ",
                 message:valid.error?.message
             });
         }else{
             res.status(201).json({
                 status:201,
-                message:'User registtration complete !'
+                message:'User registration complete !'
             });
-        }
-        
+        } 
     }catch(error:any){
-        res.send(error.message);
+        res.status(400).json({
+            status:400,
+            error:error.message
+        });
     }
 }
 
@@ -62,7 +65,7 @@ const login = async(req:Request,res:Response) =>{
     }
 }
 const userProfile = async(req:Request,res:Response) =>{
-    const profile = userService.gettingLoggedInUser();
+    const profile = await userService.retrieve();
     if(!profile){
         res.status(400).json({
             status:400,
