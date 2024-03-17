@@ -13,13 +13,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const querries_1 = __importDefault(require("../models/querries"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const create_querries = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    const valid = joi_validation_1.default.validateQuerries(req.body);
     const id = { _id: req.params.id };
-    const created_querriess = new querries_1.default({
-        visitor: req.body.visitor,
-        message: req.body.message
-    });
-    yield created_querriess.save();
+    if (valid.error) {
+        return false;
+    }
+    else {
+        const created_querriess = new querries_1.default({
+            visitor: req.body.visitor,
+            message: req.body.message
+        });
+        yield created_querriess.save();
+    }
 });
 const fetch_querries = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {

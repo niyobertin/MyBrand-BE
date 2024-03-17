@@ -1,13 +1,21 @@
 import express, {Request, Response} from 'express';
 import querriesService from '../service/querries.service';
-
+import joiValidation from "../helper/joi.validation";
 const createQuerries = async(req:Request,res:Response) => {
     try{
+        const valid = joiValidation.validateQuerries(req.body);
         const querries = await querriesService.create_querries(req)
-        res.status(201).json({
-            status:201,
-            message:'New Querry created'
-        });
+        if(valid.error){
+            res.status(400).json({
+                status:400,
+                message:valid.error?.message
+            });
+        }else{
+            res.status(201).json({
+                status:201,
+                message:'New Querry created'
+            });
+        }
     }catch(error:any){
         res.send(error.message);
     }

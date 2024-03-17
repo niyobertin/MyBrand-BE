@@ -13,16 +13,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const blogs_1 = __importDefault(require("../models/blogs"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 //creating a blog
 const createBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const blogs = new blogs_1.default({
-            title: req.body.title,
-            image: req.body.image,
-            content: req.body.content
-        });
-        yield blogs.save();
-        return blogs;
+        const valid = joi_validation_1.default.validateBlogData(req.body);
+        if (valid.error) {
+            return false;
+        }
+        else {
+            const blogs = new blogs_1.default({
+                title: req.body.title,
+                image: req.body.image,
+                content: req.body.content
+            });
+            yield blogs.save();
+            return blogs;
+        }
     }
     catch (err) {
         throw new Error(err.message);

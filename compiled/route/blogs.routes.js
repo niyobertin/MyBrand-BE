@@ -4,9 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const jwt_1 = __importDefault(require("../helper/jwt"));
 const blogs_controller_1 = __importDefault(require("../controller/blogs.controller"));
 const blogsRoutes = express_1.default.Router();
-blogsRoutes.post('/', blogs_controller_1.default.create_blogs);
+blogsRoutes.post('/', jwt_1.default.tokenValidation, blogs_controller_1.default.create_blogs);
 blogsRoutes.get('/', blogs_controller_1.default.getAllBlogs);
 blogsRoutes.get('/:id', blogs_controller_1.default.getSingleBlog);
 blogsRoutes.patch('/:id', blogs_controller_1.default.updatedBlogs);

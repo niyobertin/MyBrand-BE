@@ -13,13 +13,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const querries_service_1 = __importDefault(require("../service/querries.service"));
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const createQuerries = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
+        const valid = joi_validation_1.default.validateQuerries(req.body);
         const querries = yield querries_service_1.default.create_querries(req);
-        res.status(201).json({
-            status: 201,
-            message: 'New Querry created'
-        });
+        if (valid.error) {
+            res.status(400).json({
+                status: 400,
+                message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message
+            });
+        }
+        else {
+            res.status(201).json({
+                status: 201,
+                message: 'New Querry created'
+            });
+        }
     }
     catch (error) {
         res.send(error.message);

@@ -13,15 +13,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const coments_1 = __importDefault(require("../models/coments"));
-// import blog from "../models/blog";
+const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
 const create_coments = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    const valid = joi_validation_1.default.validateCommentData(req.body);
     const id = { _id: req.params.id };
-    const created_coments = new coments_1.default({
-        visitor: req.body.visitor,
-        coment: req.body.coment,
-        blogID: id
-    });
-    yield created_coments.save();
+    if (valid.error) {
+        return false;
+    }
+    else {
+        const created_coments = new coments_1.default({
+            visitor: req.body.visitor,
+            coment: req.body.coment,
+            blogID: id
+        });
+        yield created_coments.save();
+    }
 });
 const fetchComents = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
