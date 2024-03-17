@@ -3,7 +3,10 @@ import Joi from "joi";
 const validateBlogData = (blog:{title:String,image:String,content:String}) => {
     const blogSchema = Joi.object({
         title:Joi.string().required().min(2),
-        image:Joi.string().required(),
+        image:Joi.object({
+            mimetype: Joi.string().valid('image/jpeg', 'image/png', 'image/gif').required(),
+            size: Joi.number().max(5 * 1024 * 1024).required(),
+        }).required(),
         content:Joi.string().required().min(10)
     });
     return blogSchema.validate(blog)

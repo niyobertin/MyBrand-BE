@@ -8,7 +8,10 @@ const joi_1 = __importDefault(require("joi"));
 const validateBlogData = (blog) => {
     const blogSchema = joi_1.default.object({
         title: joi_1.default.string().required().min(2),
-        image: joi_1.default.string().required(),
+        image: joi_1.default.object({
+            mimetype: joi_1.default.string().valid('image/jpeg', 'image/png', 'image/gif').required(),
+            size: joi_1.default.number().max(5 * 1024 * 1024).required(),
+        }).required(),
         content: joi_1.default.string().required().min(10)
     });
     return blogSchema.validate(blog);

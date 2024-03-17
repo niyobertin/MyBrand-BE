@@ -13,23 +13,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const blogs_1 = __importDefault(require("../models/blogs"));
-const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
+const cloudinary_1 = require("../helper/cloudinary");
 //creating a blog
 const createBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const valid = joi_validation_1.default.validateBlogData(req.body);
-        if (valid.error) {
-            return false;
+        let blogimg;
+        if (req.file) {
+            blogimg = yield (0, cloudinary_1.uploadToCloud)(req.file);
         }
         else {
-            const blogs = new blogs_1.default({
-                title: req.body.title,
-                image: req.body.image,
-                content: req.body.content
-            });
-            yield blogs.save();
-            return blogs;
+            blogimg = null;
         }
+        const blogs = new blogs_1.default({
+            title: req.body.title,
+            image: blogimg,
+            content: req.body.content
+        });
+        yield blogs.save();
+        return blogs;
     }
     catch (err) {
         throw new Error(err.message);

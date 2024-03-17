@@ -1,22 +1,25 @@
 import { Request } from "express";
 import Blogs from "../models/blogs";
 import joiValidation from "../helper/joi.validation";
-
+import { uploadToCloud } from "../helper/cloudinary";
 //creating a blog
 const createBlogs = async (req:Request) => {
+
     try{
-        const valid = joiValidation.validateBlogData(req.body);
-        if(valid.error){
-            return false;
-        }else{
+            let blogimg;
+            if(req.file){
+                blogimg = await uploadToCloud(req.file);
+                
+            }else{
+                blogimg = null;
+            }
             const blogs = new Blogs({
                 title:req.body.title,
-                image:req.body.image,
+                image:blogimg,
                 content:req.body.content
             });
             await blogs.save();
         return blogs;
-        }
     }catch(err:any){
         throw new Error(err.message);
     }
