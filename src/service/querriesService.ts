@@ -1,6 +1,6 @@
 import { Request,Response } from "express";
 import querries from "../models/querries";
-import joiValidation from "../helper/joi.validation";
+import joiValidation from "../helper/joiValidation";
 const create_querries = async(req:Request) => {
     const valid = joiValidation.validateQuerries(req.body);
      const id = { _id: req.params.id };

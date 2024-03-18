@@ -1,7 +1,7 @@
 import { Request,Response } from "express";
-import blogsService from "../service/blog.cervice"
-import blogCervice from "../service/blog.cervice";
-import joiValidation from "../helper/joi.validation";
+import blogsService from "../service/blogService"
+import blogCervice from "../service/blogService";
+import joiValidation from "../helper/joiValidation";
 
 const create_blogs = async(req:Request,res:Response) => {
     try{

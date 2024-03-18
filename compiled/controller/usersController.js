@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const users_service_1 = __importDefault(require("../service/users.service"));
+const usersService_1 = __importDefault(require("../service/usersService"));
 const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
 const jwt_1 = __importDefault(require("../helper/jwt"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
@@ -20,7 +20,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
         const valid = joiValidation_1.default.validateUsersData(req.body);
-        const users = yield users_service_1.default.users_register(req);
+        const users = yield usersService_1.default.users_register(req);
         if (users === false) {
             res.status(400).json({
                 status: 400,
@@ -46,7 +46,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const valid = joiValidation_1.default.validateUsersData(req.body);
         const { password } = req.body;
-        const user = yield users_service_1.default.userLogin(req);
+        const user = yield usersService_1.default.userLogin(req);
         if (!user) {
             res.status(404).json({
                 status: 404,
@@ -81,7 +81,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const allusers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const profile = yield users_service_1.default.retrieve();
+    const profile = yield usersService_1.default.retrieve();
     if (!profile) {
         res.status(400).json({
             status: 400,

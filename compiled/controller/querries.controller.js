@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const querries_service_1 = __importDefault(require("../service/querries.service"));
-const joi_validation_1 = __importDefault(require("../helper/joi.validation"));
+const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
 const createQuerries = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
-        const valid = joi_validation_1.default.validateQuerries(req.body);
+        const valid = joiValidation_1.default.validateQuerries(req.body);
         const querries = yield querries_service_1.default.create_querries(req);
         if (valid.error) {
             res.status(400).json({

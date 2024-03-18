@@ -1,6 +1,6 @@
 import {Request,Response,NextFunction} from "express";
-import userService from '../service/users.service';
-import joiValidation from "../helper/joi.validation";
+import userService from '../service/usersService';
+import joiValidation from "../helper/joiValidation";
 import Jwt from "../helper/jwt";
 import bcrypt from "bcrypt"
 

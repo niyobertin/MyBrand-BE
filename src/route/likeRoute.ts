@@ -1,5 +1,5 @@
 import express,{Request,Response} from "express";
-import likesController from "../controller/likes.controller";
+import likesController from "../controller/likesController";
 const likesRoutes = express.Router();
 
 likesRoutes.post("/:id/likes",likesController.createLikes);

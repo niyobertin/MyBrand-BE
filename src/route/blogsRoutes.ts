@@ -1,6 +1,6 @@
 import express,{Request,Response} from "express";
 import Jwt from "../helper/jwt";
-import blogsController from "../controller/blogs.controller";
+import blogsController from "../controller/blogsController";
 import { customFileFilter, fileUpload } from "../helper/muliter";
 
 const blogsRoutes =  express.Router();

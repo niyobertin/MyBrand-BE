@@ -1,7 +1,7 @@
 import { Request } from "express";
 import * as bcrypt from "bcrypt";
 import Users from "../models/user";
-import joiValidation from "../helper/joi.validation";
+import joiValidation from "../helper/joiValidation";
 
 const users_register = async(req:Request) => {
     try{

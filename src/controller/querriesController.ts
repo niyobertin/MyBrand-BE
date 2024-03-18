@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
-import querriesService from '../service/querries.service';
-import joiValidation from "../helper/joi.validation";
+import querriesService from '../service/querriesService';
+import joiValidation from "../helper/joiValidation";
 const createQuerries = async(req:Request,res:Response) => {
     try{
         const valid = joiValidation.validateQuerries(req.body);

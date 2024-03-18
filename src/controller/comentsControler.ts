@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
-import cometSercice from '../service/comet.sercice';
-import joiValidation from "../helper/joi.validation";
+import cometSercice from '../service/cometSercice';
+import joiValidation from "../helper/joiValidation";
 // //creating a coments
 const createComents = async(req:Request,res:Response) => {
     try{

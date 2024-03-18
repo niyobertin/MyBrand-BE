@@ -1,6 +1,6 @@
 import express from 'express';
 import Jwt from "../helper/jwt";
-import usersController from '../controller/users.controller';
+import usersController from '../controller/usersController';
 
 const usersRoutes = express.Router();
 usersRoutes.post("/users",usersController.register);

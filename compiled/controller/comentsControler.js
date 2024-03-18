@@ -12,14 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const comet_sercice_1 = __importDefault(require("../service/comet.sercice"));
+const cometSercice_1 = __importDefault(require("../service/cometSercice"));
 const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
 // //creating a coments
 const createComents = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
         const valid = joiValidation_1.default.validateCommentData(req.body);
-        const coments = yield comet_sercice_1.default.create_coments(req);
+        const coments = yield cometSercice_1.default.create_coments(req);
         if (coments === false) {
             res.status(400).json({
                 status: 400,
@@ -38,7 +38,7 @@ const createComents = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 const getComentBasedOnBlogId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const coment = yield comet_sercice_1.default.fetchComents(req);
+    const coment = yield cometSercice_1.default.fetchComents(req);
     if (coment.length < 1) {
         res.status(200).json({ status: 200, coment: coment });
     }

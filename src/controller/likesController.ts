@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
-import likeSercice from "../service/like.service";
-import joiValidation from "../helper/joi.validation";
+import likeSercice from "../service/likeService";
+import joiValidation from "../helper/joiValidation";
 // //creating a coments
 const createLikes = async(req:Request,res:Response) => {
     try{

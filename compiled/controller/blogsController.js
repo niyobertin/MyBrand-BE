@@ -12,14 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const blog_cervice_1 = __importDefault(require("../service/blog.cervice"));
-const blog_cervice_2 = __importDefault(require("../service/blog.cervice"));
+const blogService_1 = __importDefault(require("../service/blogService"));
+const blogService_2 = __importDefault(require("../service/blogService"));
 const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
 const create_blogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
         const valid = joiValidation_1.default.validateBlogData(req.body);
-        const blogs = yield blog_cervice_1.default.createBlogs(req);
+        const blogs = yield blogService_1.default.createBlogs(req);
         if (!blogs) {
             res.status(400).json({
                 status: 400,
@@ -38,7 +38,7 @@ const create_blogs = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 const getAllBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const blogs = yield blog_cervice_1.default.retrieveBlogs();
+    const blogs = yield blogService_1.default.retrieveBlogs();
     if (blogs.length < 1) {
         res.status(404).json({ status: 404, blogs: blogs });
     }
@@ -47,7 +47,7 @@ const getAllBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 const getSingleBlog = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const blogs = yield blog_cervice_2.default.retrieveSingleBlogs(req);
+    const blogs = yield blogService_2.default.retrieveSingleBlogs(req);
     if (!blogs) {
         res.status(404).json({ status: 404, blogs: "Not Found" });
     }
@@ -56,7 +56,7 @@ const getSingleBlog = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 const updatedBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const updateBlg = yield blog_cervice_2.default.updateBlogs(req);
+    const updateBlg = yield blogService_2.default.updateBlogs(req);
     console.log(updateBlg);
     if (!updateBlg) {
         res.status(404).json({ status: 404, blogs: "Not Found" });
@@ -69,7 +69,7 @@ const updatedBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 const removeBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const deleted = yield blog_cervice_2.default.removeBlogs(req);
+    const deleted = yield blogService_2.default.removeBlogs(req);
     if (deleted.deletedCount === 0) {
         res.status(404).json({ status: 404, blogs: "Not Found" });
     }

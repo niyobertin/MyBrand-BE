@@ -1,6 +1,6 @@
 import express from "express";
 import Jwt from "../helper/jwt";
-import querriesController from "../controller/querries.controller";
+import querriesController from "../controller/querriesController";
 
 const querriesRoutes = express.Router();
 querriesRoutes.post("/querries",querriesController.createQuerries);

@@ -1,6 +1,6 @@
 import { Request,Response } from "express";
 import likes from "../models/like"
-import joiValidation from "../helper/joi.validation";
+import joiValidation from "../helper/joiValidation";
 const create_likes = async(req:Request) => {
     const valid = joiValidation.likesValidatin(req.body);
      const id = { _id: req.params.id };

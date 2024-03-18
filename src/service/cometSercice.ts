@@ -1,6 +1,6 @@
 import { Request,Response } from "express";
 import coments from "../models/coments";
-import joiValidation from "../helper/joi.validation";
+import joiValidation from "../helper/joiValidation";
 const create_coments = async(req:Request) => {
     const valid = joiValidation.validateCommentData(req.body);
      const id = { _id: req.params.id };
