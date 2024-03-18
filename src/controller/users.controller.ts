@@ -36,7 +36,7 @@ const login = async(req:Request,res:Response) =>{
         if(!user){
             res.status(404).json({
                 status:404,
-                message:'User Not Found !'
+                message:'User Not Found ! Please Register new ancount '
             }); 
         }else{
              bcrypt.compare(password,user.password)
@@ -57,14 +57,14 @@ const login = async(req:Request,res:Response) =>{
                         token:accessToken
                     });
                 }
-            })
-            
+            }) 
         }
     }catch(err:any){
         throw new Error(err.message);
     }
 }
-const userProfile = async(req:Request,res:Response) =>{
+
+const allusers = async(req:Request,res:Response) =>{
     const profile = await userService.retrieve();
     if(!profile){
         res.status(400).json({
@@ -81,5 +81,5 @@ const userProfile = async(req:Request,res:Response) =>{
 export default {
     register,
     login,
-    userProfile
+    allusers
 }

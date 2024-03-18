@@ -11,6 +11,6 @@ const blogsRoutes = express_1.default.Router();
 blogsRoutes.post('/', muliter_1.fileUpload.single('image'), muliter_1.customFileFilter, jwt_1.default.tokenValidation, blogs_controller_1.default.create_blogs);
 blogsRoutes.get('/', blogs_controller_1.default.getAllBlogs);
 blogsRoutes.get('/:id', blogs_controller_1.default.getSingleBlog);
-blogsRoutes.patch('/:id', blogs_controller_1.default.updatedBlogs);
-blogsRoutes.delete('/:id', blogs_controller_1.default.removeBlogs);
+blogsRoutes.patch('/:id', muliter_1.fileUpload.single('image'), muliter_1.customFileFilter, jwt_1.default.tokenValidation, blogs_controller_1.default.updatedBlogs);
+blogsRoutes.delete('/:id', jwt_1.default.tokenValidation, blogs_controller_1.default.removeBlogs);
 exports.default = blogsRoutes;

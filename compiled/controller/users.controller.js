@@ -50,7 +50,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (!user) {
             res.status(404).json({
                 status: 404,
-                message: 'User Not Found !'
+                message: 'User Not Found ! Please Register new ancount '
             });
         }
         else {
@@ -80,7 +80,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(err.message);
     }
 });
-const userProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const allusers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const profile = yield users_service_1.default.retrieve();
     if (!profile) {
         res.status(400).json({
@@ -98,5 +98,5 @@ const userProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.default = {
     register,
     login,
-    userProfile
+    allusers
 };

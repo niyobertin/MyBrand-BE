@@ -44,6 +44,13 @@ const retrieveSingleBlogs = async(req:Request) =>{
 //updating a blog
 const updateBlogs = async(req:Request) => {
     try{
+        let blogimg;
+            if(req.file){
+                blogimg = await uploadToCloud(req.file);
+                
+            }else{
+                blogimg = null;
+            }
         const id = { _id: req.params.id };
         const update_blogs:any =await Blogs.findOne(id);
         if(!update_blogs){
@@ -53,7 +60,7 @@ const updateBlogs = async(req:Request) => {
                 update_blogs.title = req.body.title
             }
             if(req.body.image){
-                update_blogs.image = req.body.image
+                update_blogs.image = blogimg
             }
             if(req.body.coment){
                 update_blogs.coment = req.body.coment

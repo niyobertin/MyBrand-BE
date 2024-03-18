@@ -40,7 +40,6 @@ const fetchlikes = (req) => __awaiter(void 0, void 0, void 0, function* () {
 const remove_likes = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = { _id: req.params.id };
-        //const LikeId = { _id: req.params.id };
         return yield like_1.default.deleteOne(id);
     }
     catch (error) {

@@ -58,6 +58,13 @@ const retrieveSingleBlogs = (req) => __awaiter(void 0, void 0, void 0, function*
 //updating a blog
 const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        let blogimg;
+        if (req.file) {
+            blogimg = yield (0, cloudinary_1.uploadToCloud)(req.file);
+        }
+        else {
+            blogimg = null;
+        }
         const id = { _id: req.params.id };
         const update_blogs = yield blogs_1.default.findOne(id);
         if (!update_blogs) {
@@ -68,7 +75,7 @@ const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
                 update_blogs.title = req.body.title;
             }
             if (req.body.image) {
-                update_blogs.image = req.body.image;
+                update_blogs.image = blogimg;
             }
             if (req.body.coment) {
                 update_blogs.coment = req.body.coment;

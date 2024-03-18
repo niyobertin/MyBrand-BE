@@ -57,5 +57,6 @@ export default {
     validateCommentData,
     validateQuerries,
     validateUsersData,
-    likesValidatin
+    likesValidatin,
+    loginValidation
 };

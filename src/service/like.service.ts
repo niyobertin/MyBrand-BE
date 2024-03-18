@@ -25,7 +25,6 @@ const fetchlikes = async(req:Request) =>{
 const remove_likes = async(req:Request) =>{
     try{
         const id = { _id: req.params.id };
-        //const LikeId = { _id: req.params.id };
     return await likes.deleteOne(id);
     }catch(error:any){
     throw new Error(error.message);
