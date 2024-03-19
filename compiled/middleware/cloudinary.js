@@ -12,33 +12,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const coments_1 = __importDefault(require("../models/coments"));
-const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
-const create_coments = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    const valid = joiValidation_1.default.validateCommentData(req.body);
-    const id = { _id: req.params.id };
-    if (valid.error) {
-        return false;
-    }
-    else {
-        const created_coments = new coments_1.default({
-            visitor: req.body.visitor,
-            coment: req.body.coment,
-            blogID: id
-        });
-        yield created_coments.save();
-    }
-});
-const fetchComents = (req) => __awaiter(void 0, void 0, void 0, function* () {
+exports.uploadToCloud = void 0;
+const cloudinary_1 = __importDefault(require("cloudinary"));
+const cloudinary_confog_1 = __importDefault(require("../config/cloudinary.confog"));
+cloudinary_confog_1.default;
+const uploadToCloud = (file) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = { _id: req.params.id };
-        return yield coments_1.default.find({ blogID: id });
+        const uploadedImage = yield cloudinary_1.default.v2.uploader.upload(file.path, {
+            folder: 'blogsImage',
+            use_filename: true,
+        });
+        return uploadedImage.secure_url;
     }
-    catch (error) {
-        throw new Error(error.message);
+    catch (e) {
+        throw new Error(e.message);
     }
 });
-exports.default = {
-    create_coments,
-    fetchComents
-};
+exports.uploadToCloud = uploadToCloud;

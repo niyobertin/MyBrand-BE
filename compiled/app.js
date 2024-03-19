@@ -15,3 +15,4 @@ app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use("/api/v1", index_1.default);
 app.listen(process.env.PORT, () => { console.log(`Server has started on http://localhost:${process.env.PORT}...`); });
+exports.default = app;

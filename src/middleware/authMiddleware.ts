@@ -1,15 +1,7 @@
-import dotenv from "dotenv"
-import { sign,verify } from "jsonwebtoken";
 import {  Request,Response, NextFunction} from "express";
-dotenv.config();
-// import user from "../models/user";
-//Creating token func
-const createToken = (user:any) => {
-const accessToken = sign({ email:user.email},`${process.env.TOKEN_SCRET}`)
-return accessToken;
-}
+import { sign,verify } from "jsonwebtoken";
 //token validation.
-const tokenValidation  = (req:Request,res:Response,next:NextFunction) => {
+const authotication  = (req:Request,res:Response,next:NextFunction) => {
     const accessToken  = req.cookies["access-token"];
     if(!accessToken){
         return res.status(401).json({error:"⚠️Login first"})
@@ -26,7 +18,4 @@ const tokenValidation  = (req:Request,res:Response,next:NextFunction) => {
         }
     }
 }
-export default {
-    createToken,
-     tokenValidation
-    };
+export default {authotication};

@@ -1,19 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = require("jsonwebtoken");
-dotenv_1.default.config();
-// import user from "../models/user";
-//Creating token func
-const createToken = (user) => {
-    const accessToken = (0, jsonwebtoken_1.sign)({ email: user.email }, `${process.env.TOKEN_SCRET}`);
-    return accessToken;
-};
 //token validation.
-const tokenValidation = (req, res, next) => {
+const authotication = (req, res, next) => {
     const accessToken = req.cookies["access-token"];
     if (!accessToken) {
         return res.status(401).json({ error: "⚠️Login first" });
@@ -32,7 +21,4 @@ const tokenValidation = (req, res, next) => {
         }
     }
 };
-exports.default = {
-    createToken,
-    tokenValidation
-};
+exports.default = { authotication };
