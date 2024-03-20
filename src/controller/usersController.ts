@@ -27,7 +27,7 @@ const register = async(req:Request,res:Response) => {
         });
     }
 }
-
+let accessToken;
 const login = async(req:Request,res:Response) =>{
     try{
         const valid = joiValidation.validateUsersData(req.body);
@@ -47,7 +47,7 @@ const login = async(req:Request,res:Response) =>{
                         message:'Bad combination of email and password!'
                     });
                 }else{
-                    const accessToken = Jwt.createToken(user);
+                    accessToken = Jwt.createToken(user);
                     res.cookie("access-token",accessToken,{
                         maxAge: 60 * 60 * 24 * 31 * 1000,
                         httpOnly:true,

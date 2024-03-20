@@ -23,15 +23,26 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connection.close();
 }));
-describe("Get all blogs", () => {
-    it("should return status 200 to indicate that  blogs obtained", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get("/api/v1/blogs");
-        expect(response.status).toBe(200);
+describe("/api/v1/mybrand/users", () => {
+    it("Return status 201 to indicate that new user registered", () => __awaiter(void 0, void 0, void 0, function* () {
+        const users = {
+            username: "bertin_5",
+            email: "bertin50@gmail.com",
+            password: "ber3@3"
+        };
+        const res = yield request.post("/api/v1/mybrand/users")
+            .send(users);
+        expect(res.status).toBe(201);
     }));
 });
-describe("Get single blog", () => {
-    it("Should return status code 200 to indicate ok for obtained single blog", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get("/api/v1/blogs/65f76b6aa44b7600f4607057");
+describe('Log in', () => {
+    it('Should login session successfully', () => __awaiter(void 0, void 0, void 0, function* () {
+        const loggedInUser = {
+            email: "niyonkurubbertin@gmail.com",
+            password: "bertin12",
+        };
+        const response = yield request.post("/api/v1/mybrand/users/login")
+            .send(loggedInUser);
         expect(response.status).toBe(200);
     }));
 });

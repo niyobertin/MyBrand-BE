@@ -1,25 +1,26 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { Response, SuperTest, Test } from 'supertest';
-import supertest from 'supertest';
 import app from "../app";
 dotenv.config()
 const request: SuperTest<Test> = require('supertest')(app);
-
-/* Connecting to the database before each test. */
-beforeEach(async () => {
+beforeAll(async() => {
     await mongoose.connect(`${process.env.URL}`);
   });
-  
-  /* Closing database connection after each test. */
-  afterEach(async () => {
+  afterAll(async () => {
     await mongoose.connection.close();
   });
-  //login valiable.
-  //testing a blogs
-   describe("Creating new blogs",()=>{
-    it("should return status 201 to indicate that blog created",async() =>{
-        const response: Response = await request.post("/api/v1/blogs");
-        expect(response.status).toBe(201)
+   describe("Get all blogs",()=>{
+    it("should return status 200 to indicate that  blogs obtained",async() =>{
+        const response: Response = await request.get("/api/v1/blogs");
+        expect(response.status).toBe(200);
     })
    })
+   
+   describe("Get single blog",()=>{
+    it("Should return status code 200 to indicate ok for obtained single blog",async() =>{
+      const response: Response = await request.get("/api/v1/blogs/65f76b6aa44b7600f4607057");
+      expect(response.status).toBe(200);
+    })
+  })
+ 

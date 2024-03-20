@@ -5,10 +5,11 @@ dotenv.config();
 // import user from "../models/user";
 //Creating token func
 const createToken = (user:any) => {
-const accessToken = sign({ email:user.email},`${process.env.TOKEN_SCRET}`)
+const accessToken = sign({ email:user.email},`${process.env.TOKEN_SCRET}`,{
+    expiresIn:30 * 25 * 60 * 60*1000
+})
 return accessToken;
 }
-//token validation.
 const tokenValidation  = (req:Request,res:Response,next:NextFunction) => {
     const accessToken  = req.cookies["access-token"];
     if(!accessToken){
@@ -17,6 +18,7 @@ const tokenValidation  = (req:Request,res:Response,next:NextFunction) => {
         try{
             let authenticated:any;
             const validToken = verify(accessToken,`${process.env.TOKEN_SCRET}`);
+            console.log(validToken)
             if(validToken){
                 authenticated = true
                 return next();

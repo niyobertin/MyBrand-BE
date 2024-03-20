@@ -42,6 +42,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
 });
+let accessToken;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const valid = joiValidation_1.default.validateUsersData(req.body);
@@ -63,7 +64,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     });
                 }
                 else {
-                    const accessToken = jwt_1.default.createToken(user);
+                    accessToken = jwt_1.default.createToken(user);
                     res.cookie("access-token", accessToken, {
                         maxAge: 60 * 60 * 24 * 31 * 1000,
                         httpOnly: true,
