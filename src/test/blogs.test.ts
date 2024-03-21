@@ -8,6 +8,7 @@ const request: SuperTest<Test> = require('supertest')(app);
 beforeAll(async() => {
     await mongoose.connect(`${process.env.URL}`);
   });
+
   afterAll(async () => {
     await mongoose.connection.close();
   });

@@ -3,15 +3,19 @@ import express, {Request, Response} from 'express';
 import cookieParser from "cookie-parser";
 import routes from "./route/index";
 import db from './config/config';
+import { server } from "typescript";
 dotenv.config();
 db
     const app = express();
     app.use(express.json());
     app.use(cookieParser())
     app.use("/api/v1",routes);
-// app.listen(process.env.PORT,() =>{
-//     console.log(`Server has started on http://localhost:${process.env.PORT}...`)
-// });
+    if (require.main === module) {
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+          console.log(`Server is running on port ${port}`);
+        });
+      }
  export default app;
 
 
