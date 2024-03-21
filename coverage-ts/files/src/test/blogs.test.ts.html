@@ -11,23 +11,19 @@
 <link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\test\blogs.test.ts</td><td class="">100.00%</td><td class="">80%</td><td class="">43</td><td class="">43</td><td class="">0</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import mongoose from &quot;mongoose&quot;;
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\test\blogs.test.ts</td><td class="">93.81%</td><td class="">80%</td><td class="">97</td><td class="">91</td><td class="">6</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import jsonwebtoken from &#x27;jsonwebtoken&#x27;
+import mongoose from &quot;mongoose&quot;;
 import dotenv from &quot;dotenv&quot;;
 import { Response, SuperTest, Test } from &#x27;supertest&#x27;;
 import app from &quot;../app&quot;;
 dotenv.config()
 const request: SuperTest&lt;Test&gt; = require(&#x27;supertest&#x27;)(app);
-
-/* Connecting to the database before each test. */
 beforeAll(async() =&gt; {
     await mongoose.connect(`${process.env.URL}`);
   });
-  
-  /* Closing database connection after each test. */
   afterAll(async () =&gt; {
     await mongoose.connection.close();
   });
-  //Testing to retreave all blogs
    describe(&quot;Get all blogs&quot;,()=&gt;{
     it(&quot;should return status 200 to indicate that  blogs obtained&quot;,async() =&gt;{
         const response: Response = await request.get(&quot;/api/v1/blogs&quot;);
@@ -37,38 +33,47 @@ beforeAll(async() =&gt; {
    
    describe(&quot;Get single blog&quot;,()=&gt;{
     it(&quot;Should return status code 200 to indicate ok for obtained single blog&quot;,async() =&gt;{
-      const response: Response = await request.get(&quot;/api/v1/blogs/65f76b6aa44b7600f4607057&quot;);
+      const response: Response = await request.get(&quot;/api/v1/blogs/65fa03b7bae5c15a418f8ceb&quot;);
       expect(response.status).toBe(200);
     })
   })
-   // Test to creat  new blogs
-  //  describe(&#x27;Create a new blogs&#x27;,() =&gt;{
-  //   it(&quot;Schould return status 201 to indicate that a new blog created&quot;,async() =&gt;{
-  //     const blogs = {
-  //       title:&#x27;Urwagasabo&#x27;,
-  //       image:&quot;image&quot;,
-  //       content:&quot;Rwanda is a small country starting at the small hill called gasabo.&quot;
-  //     };
-  //     const response:Response = await request.post(&quot;/api/v1/blogs/&quot;)
-  //     .send(blogs);
-  //     expect(response.status).toBe(201);
-  //     expect(response.body).toHaveProperty(&quot;title&quot;);
-  //   })
-  //  }) 
 
-  //Test to update post.
+    let token:any;
+  describe(&#x27;Log in&#x27;,() =&gt;{
+    it(&#x27;Should login session successfully&#x27;,async() =&gt;{
+      const loggedInUser = {
+        email:&quot;niyonkurubbertin@gmail.com&quot;,
+        password:&quot;bertin12&quot;,
+      };
+      const response:Response = await request.post(&quot;/api/v1/mybrand/users/login&quot;)
+      .send(loggedInUser);
+      expect(response.status).toBe(200);
+      token = response.body.token;
+    })
+   })
+   describe(&quot;/api/v1/mybrand/querries&quot;,() =&gt;{
+    it(&#x27;should retrun 200 to indicate retreaving data sucessifull&#x27;,async()=&gt;{
+      const res:Response = await request.get(&quot;/api/v1/mybrand/querries&quot;)
+      .set(&#x27;Authorization&#x27;, `Bearer ${token}`);
+      expect(res.status).toBe(200)
+    })
+    it(&#x27;Shoul return 401 when no token provided&#x27;,async() =&gt; {
+      const res:Response = await request.get(&quot;/api/v1/mybrand/querries&quot;)
+      expect(res.status).toBe(401)
+    })
+  })
 
-  //Test to delete or remove post.
-  // describe(&quot;Delete blogs&quot;,()=&gt;{
-  //   it(&quot;Should return status code 200 to indicate ok for deleted blog&quot;,async() =&gt;{
-  //     const response: Response = await request.delete(&quot;/api/v1/blogs/65f9b80b46b4681aa413adb5&quot;,{...headers});
-  //     expect(response.status).toBe(200);
-  //   })
-  // })
+  describe(&quot;/api/v1/mybrand/querries&quot;,() =&gt;{
+    it(&#x27;should retrun 200&#x27;,async()=&gt;{
+      const res:Response = await request.get(&quot;/api/v1/mybrand/querries&quot;)
+      .set(&#x27;Authorization&#x27;, `Bearer ${token}`);
+      expect(res.status).toBe(200)
 
-   
-</textarea><pre id="annotations" style="display:none">[]</pre></div>
-    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Wed, 20 Mar 2024 17:22:54 GMT</p>
+    })
+  })
+
+</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:27,&quot;character&quot;:8,&quot;text&quot;:&quot;token&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:37,&quot;character&quot;:6,&quot;text&quot;:&quot;token&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:37,&quot;character&quot;:23,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:37,&quot;character&quot;:28,&quot;text&quot;:&quot;token&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:43,&quot;character&quot;:38,&quot;text&quot;:&quot;token&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\test\\blogs.test.ts&quot;,&quot;line&quot;:55,&quot;character&quot;:38,&quot;text&quot;:&quot;token&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Thu, 21 Mar 2024 12:15:42 GMT</p>
     </body>
   </html>
   
