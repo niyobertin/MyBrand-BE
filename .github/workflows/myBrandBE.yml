@@ -1,6 +1,10 @@
-name: mybrandBe-giyhub-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: mybrandBe-CI
+run-name: ${{ github.actor }} myBrandeBE
+on: 
+ push:
+    branches: [ "developer" ]
+  pull_request:
+    branches: [ "developer" ]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
