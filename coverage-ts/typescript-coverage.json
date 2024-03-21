@@ -113,8 +113,8 @@
       "totalCount": 9
     },
     "src\\app.ts": {
-      "correctCount": 24,
-      "totalCount": 24
+      "correctCount": 38,
+      "totalCount": 38
     },
     "src\\models\\comentSchema.ts": {
       "correctCount": 22,
@@ -1645,42 +1645,42 @@
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 27,
+      "line": 28,
       "character": 8,
       "text": "token",
       "kind": 1
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 37,
+      "line": 38,
       "character": 6,
       "text": "token",
       "kind": 1
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 37,
+      "line": 38,
       "character": 23,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 37,
+      "line": 38,
       "character": 28,
       "text": "token",
       "kind": 1
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 43,
+      "line": 44,
       "character": 38,
       "text": "token",
       "kind": 1
     },
     {
       "file": "src\\test\\blogs.test.ts",
-      "line": 55,
+      "line": 56,
       "character": 38,
       "text": "token",
       "kind": 1
@@ -1770,8 +1770,8 @@
       "kind": 1
     }
   ],
-  "percentage": 86.91746209994385,
-  "total": 1781,
-  "covered": 1548,
+  "percentage": 87.01949860724234,
+  "total": 1795,
+  "covered": 1562,
   "uncovered": 233
 }

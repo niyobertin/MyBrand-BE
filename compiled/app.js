@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const index_1 = __importDefault(require("./route/index"));
 const config_1 = __importDefault(require("./config/config"));
+const swagger_1 = __importDefault(require("./swagger"));
 dotenv_1.default.config();
 config_1.default;
 const app = (0, express_1.default)();
@@ -19,5 +20,6 @@ if (require.main === module) {
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
     });
+    (0, swagger_1.default)(app, port);
 }
 exports.default = app;
