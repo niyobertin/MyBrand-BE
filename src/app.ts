@@ -9,7 +9,9 @@ db
     app.use(express.json());
     app.use(cookieParser())
     app.use("/api/v1",routes);
-app.listen(process.env.PORT,() =>{console.log(`Server has started on http://localhost:${process.env.PORT}...`)});
-
+// app.listen(process.env.PORT,() =>{
+//     console.log(`Server has started on http://localhost:${process.env.PORT}...`)
+// });
+ export default app;
 
 

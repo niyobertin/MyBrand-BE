@@ -7,7 +7,4 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 dotenv_1.default.config();
 //Connect to MongoDb
-exports.default = mongoose_1.default.connect(`${process.env.URL}`)
-    .then(() => {
-    console.log("Database connection successfuly!");
-});
+exports.default = mongoose_1.default.connect(`${process.env.URL}`);

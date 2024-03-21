@@ -7,6 +7,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const blogSchema = new mongoose_1.default.Schema({
     title: { type: String, required: true },
     image: { type: String, required: true },
-    content: { type: String, required: true }
+    content: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now() }
 });
 exports.default = mongoose_1.default.model("Blog", blogSchema);

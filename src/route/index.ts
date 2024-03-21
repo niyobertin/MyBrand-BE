@@ -1,9 +1,9 @@
 import express, {Request, Response} from 'express';
-import blogRoute from './blogs.routes';
-import comentsRoutes from "./coment.route"
-import likeRoutes from './like.route';
-import querriesRoutes from './querries.routes';
-import usersRoutes from './users.routes';
+import blogRoute from './blogsRoutes';
+import comentsRoutes from "./comentRoute"
+import likeRoutes from './likeRoute';
+import querriesRoutes from './querriesRoutes';
+import usersRoutes from './usersRoutes';
 const router = express.Router();
 router.use('/blogs',blogRoute);
 router.use("/blogs",comentsRoutes);
