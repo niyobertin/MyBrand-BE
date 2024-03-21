@@ -1,21 +1,19 @@
 import {  Request,Response, NextFunction} from "express";
-import { sign,verify } from "jsonwebtoken";
+import jwt,{ sign,verify } from "jsonwebtoken";
 //token validation.
 const authotication  = (req:Request,res:Response,next:NextFunction) => {
-    const accessToken  = req.cookies["access-token"];
-    if(!accessToken){
-        return res.status(401).json({error:"⚠️Login first"})
-    }else{
-        try{
-            let authenticated:any;
-            const validToken = verify(accessToken,`${process.env.TOKEN_SCRET}`);
-            if(validToken){
-                authenticated = true
-                return next();
+    const accessToken  = req.headers.authorization?.split(' ')[1];
+    if(accessToken){
+        jwt.verify(accessToken,`${process.env.TOKEN_SCRET}`,(err:any,decode:any) =>{
+            if(err){
+                return res.status(401).json({ message: 'Unauthorized' });
+            }else{
+                req.body = decode
+                next()
             }
-        }catch(err:any){
-            return res.status(400).json({error:err}); 
-        }
+        })
+    }else{
+        res.status(401).json({ message: 'Unauthorized' });  
     }
 }
-export default {authotication};
+export default authotication;

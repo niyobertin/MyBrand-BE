@@ -65,10 +65,6 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 }
                 else {
                     accessToken = jwt_1.default.createToken(user);
-                    res.cookie("access-token", accessToken, {
-                        maxAge: 60 * 60 * 24 * 31 * 1000,
-                        httpOnly: true,
-                    });
                     res.status(200).json({
                         status: 201,
                         token: accessToken

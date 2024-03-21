@@ -1,13 +1,13 @@
 import express,{Request,Response} from "express";
-import Jwt from "../helper/jwt";
+import authotication from "../middleware/authMiddleware";
 import blogsController from "../controller/blogsController";
 import { customFileFilter, fileUpload } from "../helper/muliter";
 
 const blogsRoutes =  express.Router();
-blogsRoutes.post('/',fileUpload.single('image'),customFileFilter,Jwt.tokenValidation,blogsController.create_blogs);
+blogsRoutes.post('/',authotication,fileUpload.single('image'),customFileFilter,blogsController.create_blogs);
 blogsRoutes.get('/',blogsController.getAllBlogs);
 blogsRoutes.get('/:id',blogsController.getSingleBlog);
-blogsRoutes.patch('/:id',fileUpload.single('image'),customFileFilter,Jwt.tokenValidation,blogsController.updatedBlogs);
-blogsRoutes.delete('/:id',Jwt.tokenValidation,blogsController.removeBlogs);
+blogsRoutes.patch('/:id',fileUpload.single('image'),customFileFilter,authotication,blogsController.updatedBlogs);
+blogsRoutes.delete('/:id',authotication,blogsController.removeBlogs);
 
 export default blogsRoutes;

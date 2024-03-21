@@ -10,7 +10,7 @@ dotenv_1.default.config();
 //Creating token func
 const createToken = (user) => {
     const accessToken = (0, jsonwebtoken_1.sign)({ email: user.email }, `${process.env.TOKEN_SCRET}`, {
-        expiresIn: 30 * 25 * 60 * 60 * 1000
+        expiresIn: '24h'
     });
     return accessToken;
 };

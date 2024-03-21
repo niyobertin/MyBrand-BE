@@ -3,7 +3,4 @@ import mongoose from "mongoose";
 dotev.config();
 //Connect to MongoDb
 export default mongoose.connect(`${process.env.URL}`)
-.then(() => {
-    console.log("Database connection successfuly!");
-})
 

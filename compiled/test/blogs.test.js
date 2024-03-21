@@ -31,7 +31,38 @@ describe("Get all blogs", () => {
 });
 describe("Get single blog", () => {
     it("Should return status code 200 to indicate ok for obtained single blog", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get("/api/v1/blogs/65f76b6aa44b7600f4607057");
+        const response = yield request.get("/api/v1/blogs/65fa03b7bae5c15a418f8ceb");
         expect(response.status).toBe(200);
+    }));
+});
+let token;
+describe('Log in', () => {
+    it('Should login session successfully', () => __awaiter(void 0, void 0, void 0, function* () {
+        const loggedInUser = {
+            email: "niyonkurubbertin@gmail.com",
+            password: "bertin12",
+        };
+        const response = yield request.post("/api/v1/mybrand/users/login")
+            .send(loggedInUser);
+        expect(response.status).toBe(200);
+        token = response.body.token;
+    }));
+});
+describe("/api/v1/mybrand/querries", () => {
+    it('should retrun 200 to indicate retreaving data sucessifull', () => __awaiter(void 0, void 0, void 0, function* () {
+        const res = yield request.get("/api/v1/mybrand/querries")
+            .set('Authorization', `Bearer ${token}`);
+        expect(res.status).toBe(200);
+    }));
+    it('Shoul return 401 when no token provided', () => __awaiter(void 0, void 0, void 0, function* () {
+        const res = yield request.get("/api/v1/mybrand/querries");
+        expect(res.status).toBe(401);
+    }));
+});
+describe("/api/v1/mybrand/querries", () => {
+    it('should retrun 200', () => __awaiter(void 0, void 0, void 0, function* () {
+        const res = yield request.get("/api/v1/mybrand/querries")
+            .set('Authorization', `Bearer ${token}`);
+        expect(res.status).toBe(200);
     }));
 });

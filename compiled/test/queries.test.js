@@ -15,25 +15,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app_1 = __importDefault(require("../app"));
-const user_1 = __importDefault(require("../models/user"));
 dotenv_1.default.config();
 const request = require('supertest')(app_1.default);
 beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    user_1.default.deleteMany();
     yield mongoose_1.default.connect(`${process.env.URL}`);
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connection.close();
 }));
-describe("/api/v1/mybrand/users", () => {
-    it("Return status 201 to indicate that new user registered", () => __awaiter(void 0, void 0, void 0, function* () {
-        const users = {
-            username: "berti5",
-            email: "bertin5@gmail.com",
-            password: "ber3@4"
-        };
-        const res = yield request.post("/api/v1/mybrand/users")
-            .send(users);
-        expect(res.status).toBe(201);
+describe("Creating new queries", () => {
+    const query = {
+        visitor: "iradukunda jean",
+        message: "we need to talk to you"
+    };
+    it("Should retrun status code to 201 to idnicate that new query created", () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield request.post("/api/v1/mybrand/querries")
+            .send(query);
+        expect(response.status).toBe(201);
     }));
 });

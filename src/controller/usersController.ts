@@ -1,6 +1,7 @@
 import {Request,Response,NextFunction} from "express";
 import userService from '../service/usersService';
 import joiValidation from "../helper/joiValidation";
+import authMiddleware from "../middleware/authMiddleware";
 import Jwt from "../helper/jwt";
 import bcrypt from "bcrypt"
 
@@ -48,10 +49,6 @@ const login = async(req:Request,res:Response) =>{
                     });
                 }else{
                     accessToken = Jwt.createToken(user);
-                    res.cookie("access-token",accessToken,{
-                        maxAge: 60 * 60 * 24 * 31 * 1000,
-                        httpOnly:true,
-                    })
                     res.status(200).json({
                         status:201,
                         token:accessToken

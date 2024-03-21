@@ -1,10 +1,10 @@
 import express from 'express';
-import Jwt from "../helper/jwt";
+import authotication from "../middleware/authMiddleware";
 import usersController from '../controller/usersController';
 
 const usersRoutes = express.Router();
 usersRoutes.post("/users",usersController.register);
 usersRoutes.post("/users/login",usersController.login);
-usersRoutes.get("/users",Jwt.tokenValidation,usersController.allusers);
+usersRoutes.get("/users",authotication,usersController.allusers);
 
 export default usersRoutes;

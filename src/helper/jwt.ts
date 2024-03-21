@@ -6,7 +6,7 @@ dotenv.config();
 //Creating token func
 const createToken = (user:any) => {
 const accessToken = sign({ email:user.email},`${process.env.TOKEN_SCRET}`,{
-    expiresIn:30 * 25 * 60 * 60*1000
+    expiresIn:'24h'
 })
 return accessToken;
 }
