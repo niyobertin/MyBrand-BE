@@ -3,7 +3,7 @@ import express, {Request, Response} from 'express';
 import cookieParser from "cookie-parser";
 import routes from "./route/index";
 import db from './config/config';
-import { server } from "typescript";
+import swaggerDocs from "./swagger";
 dotenv.config();
 db
     const app = express();
@@ -15,6 +15,7 @@ db
         app.listen(port, () => {
           console.log(`Server is running on port ${port}`);
         });
+        swaggerDocs(app,port)
       }
  export default app;
 

@@ -2,11 +2,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { Response, SuperTest, Test } from 'supertest';
 import app from "../app";
-import User from "../models/user";
 dotenv.config()
 const request: SuperTest<Test> = require('supertest')(app);
 beforeAll(async() => {
-  User.deleteMany()
     await mongoose.connect(`${process.env.URL}`);
   });
   afterAll(async () => {

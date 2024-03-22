@@ -15,11 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app_1 = __importDefault(require("../app"));
-const user_1 = __importDefault(require("../models/user"));
 dotenv_1.default.config();
 const request = require('supertest')(app_1.default);
 beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    user_1.default.deleteMany();
     yield mongoose_1.default.connect(`${process.env.URL}`);
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {

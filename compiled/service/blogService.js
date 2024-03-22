@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const blogs_1 = __importDefault(require("../models/blogs"));
-//import joiValidation from "../middleware/authMiddleware";
 const cloudinary_1 = require("../middleware/cloudinary");
 //creating a blog
 const createBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
@@ -76,10 +75,10 @@ const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
                 update_blogs.title = req.body.title;
             }
             if (req.body.image) {
-                update_blogs.image = blogimg;
+                update_blogs.image = blogimg || update_blogs.image;
             }
-            if (req.body.coment) {
-                update_blogs.coment = req.body.coment;
+            if (req.body.content) {
+                update_blogs.content = req.body.content;
             }
         }
         yield update_blogs.save();

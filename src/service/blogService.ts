@@ -1,6 +1,5 @@
 import { Request } from "express";
 import Blogs from "../models/blogs";
-//import joiValidation from "../middleware/authMiddleware";
 import { uploadToCloud } from "../middleware/cloudinary";
 //creating a blog
 const createBlogs = async (req:Request) => {
@@ -60,10 +59,10 @@ const updateBlogs = async(req:Request) => {
                 update_blogs.title = req.body.title
             }
             if(req.body.image){
-                update_blogs.image = blogimg
+                update_blogs.image = blogimg || update_blogs.image
             }
-            if(req.body.coment){
-                update_blogs.coment = req.body.coment
+            if(req.body.content){
+                update_blogs.content = req.body.content
             }
         }
         await update_blogs.save();
