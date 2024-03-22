@@ -1,14 +1,15 @@
   
-  /** POST Methods */
     /**
  * @swagger
  * /api/v1/blogs:
  *  post:
+ *     security:
+ *       - Authorization: []
  *     summary: Create a blog
  *     requestBody:
  *      required: true
  *      content:
- *        application/json:
+ *        multipart/form-data:
  *           schema:
  *            type: object
  *            required:
@@ -20,6 +21,7 @@
  *                type: string
  *              image:
  *                type: string
+ *                format: binary
  *              content:
  *                type: string
  *     responses:
@@ -123,11 +125,13 @@
  * @swagger
  * '/api/v1/blogs/65fa03b7bae5c15a418f8ceb':
  *  patch:
+ *     security:
+ *       - Authorization: []
  *     summary: Update a blog
  *     requestBody:
- *      required: true
+ *      required: false
  *      content:
- *        application/json:
+ *       multipart/form-data:
  *           schema:
  *            type: object
  *            required:
@@ -139,6 +143,7 @@
  *                type: string
  *              image:
  *                type: string
+ *                format: binary
  *              content:
  *                type: string
  *     responses:
@@ -152,11 +157,13 @@
  * @swagger
  * /api/v1/blogs/65fa03b7bae5c15a418f8ceb:
  *   delete:
- *     summary: Get single blog
- *     description: Retrieve a list of blog
+ *     security:
+ *       - Authorization: []
+ *     summary: Delete single blog
+ *     description: Delete a blog
  *     responses:
  *       200:
- *         description: A list of blog
+ *         description: Blog deleted
  *         content:
  *           application/json:
  *             schema:
@@ -202,3 +209,99 @@
  *           application/json:
  *             schema:
  */
+
+           /**
+ * @swagger
+ * /api/v1/blogs/65fa03b7bae5c15a418f8ceb/likes:
+ *  post:
+ *     summary: Create a like
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - like
+ *            properties:
+ *              like:
+ *                type: boolen
+ *     responses:
+ *      201:
+ *        description: Created
+ *      500:
+ *        description: Server Error
+ */
+   /**
+ * @swagger
+ * /api/v1/blogs/65fa03b7bae5c15a418f8ceb/likes:
+ *   get:
+ *     summary: Get all likes
+ *     description: Retreaving likes
+ *     responses:
+ *       200:
+ *         description: A list of likes
+ *         content:
+ *           application/json:
+ *             schema:
+ */
+            /**
+ * @swagger
+ * /api/v1/mybrand/querries:
+ *  post:
+ *     summary: Posting queries
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - visitor
+ *              - message
+ *            properties:
+ *              visitor:
+ *                type: string
+ *              message:
+ *                type: string
+ *     responses:
+ *      201:
+ *        description: Created
+ *      500:
+ *        description: Server Error
+ */
+
+   /**
+ * @swagger
+ * /api/v1/mybrand/querries:
+ *   get:
+ *     security:
+ *       - Authorization: []
+ *     summary: Get all queries
+ *     description: Retreaving queries
+ *     responses:
+ *       200:
+ *         description: A list of queries
+ *         content:
+ *           application/json:
+ *             schema:
+ */
+
+ /**
+ * @swagger
+ * /api/v1/mybrand/querries/65f2f374a22653f5ff591bf6:
+ *   delete:
+ *     security:
+ *       - Authorization: []
+ *     summary: Delete queries
+ *     description: Delete queries
+ *     responses:
+ *       200:
+ *         description: Query deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ */
+
+  
+

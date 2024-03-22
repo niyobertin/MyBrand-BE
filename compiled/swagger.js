@@ -18,15 +18,25 @@ const options = {
             },
             version: '1.0.0',
         },
+        components: {
+            securitySchemes: {
+                Authorization: {
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT",
+                    value: "Bearer <JWT token here>"
+                }
+            }
+        },
         servers: [
             {
                 url: "http://localhost:3000/",
                 description: "Local server"
             },
-            //   {
-            //     url: "<your live url here>",
-            //     description: "Live server"
-            //   },
+            {
+                url: "<your live url here>",
+                description: "Live server"
+            },
         ]
     },
     apis: ['./src/**/*.ts'],

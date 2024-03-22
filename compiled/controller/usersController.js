@@ -66,7 +66,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 else {
                     accessToken = jwt_1.default.createToken(user);
                     res.status(200).json({
-                        status: 201,
+                        status: 200,
                         token: accessToken
                     });
                 }

@@ -19,7 +19,7 @@ const user_1 = __importDefault(require("../models/user"));
 dotenv_1.default.config();
 const request = require('supertest')(app_1.default);
 beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    user_1.default.deleteMany();
+    console.log(user_1.default.findByIdAndDelete());
     yield mongoose_1.default.connect(`${process.env.URL}`);
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {

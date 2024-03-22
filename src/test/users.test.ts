@@ -6,7 +6,7 @@ import User from "../models/user";
 dotenv.config()
 const request: SuperTest<Test> = require('supertest')(app);
 beforeAll(async() => {
-  User.deleteMany()
+  console.log(User.findByIdAndDelete())
     await mongoose.connect(`${process.env.URL}`);
   });
   afterAll(async () => {
