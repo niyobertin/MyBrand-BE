@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
 import likeSercice from "../service/likeService";
 import joiValidation from "../helper/joiValidation";
-// //creating a coments
+// //creating a comments
 const createLikes = async(req:Request,res:Response) => {
     try{
         const valid = joiValidation.likesValidatin(req.body)

@@ -1,30 +1,30 @@
 import { Request,Response } from "express";
-import coments from "../models/coments";
+import comments from "../models/comments";
 import joiValidation from "../helper/joiValidation";
-const create_coments = async(req:Request) => {
-    const valid = joiValidation.validateCommentData(req.body);
+const create_comments = async(req:Request) => {
+    const valid = joiValidation.validatecommentsData(req.body);
      const id = { _id: req.params.id };
      if(valid.error){
         return false;
      }else{
-        const created_coments = new coments({
+        const created_comments = new comments({
             visitor:req.body.visitor,
-            coment:req.body.coment,
+            comments:req.body.comments,
             blogID:id
         })
-       await created_coments.save();
+       await created_comments.save();
      }
 }
-const fetchComents = async(req:Request) =>{
+const fetchcomments = async(req:Request) =>{
     try{
         const id = { _id: req.params.id };
-    return await coments.find({blogID:id});
+    return await comments.find({blogID:id});
     }catch(error:any){
     throw new Error(error.message);
     }
 }
 
 export default {
-    create_coments,
-    fetchComents
+    create_comments,
+    fetchcomments
 }

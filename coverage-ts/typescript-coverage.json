@@ -36,7 +36,7 @@
       "correctCount": 40,
       "totalCount": 40
     },
-    "src\\models\\coments.ts": {
+    "src\\models\\comments.ts": {
       "correctCount": 22,
       "totalCount": 22
     },
@@ -44,11 +44,11 @@
       "correctCount": 41,
       "totalCount": 51
     },
-    "src\\controller\\comentsControler.ts": {
+    "src\\controller\\commentsControler.ts": {
       "correctCount": 52,
       "totalCount": 63
     },
-    "src\\route\\comentRoute.ts": {
+    "src\\route\\commentsRoute.ts": {
       "correctCount": 16,
       "totalCount": 16
     },
@@ -124,7 +124,7 @@
       "correctCount": 0,
       "totalCount": 0
     },
-    "src\\models\\comentSchema.ts": {
+    "src\\models\\commentschema.ts": {
       "correctCount": 22,
       "totalCount": 22
     },
@@ -132,7 +132,7 @@
       "correctCount": 91,
       "totalCount": 97
     },
-    "src\\test\\comment.test.ts": {
+    "src\\test\\comments.test.ts": {
       "correctCount": 78,
       "totalCount": 90
     },
@@ -745,7 +745,7 @@
       "file": "src\\service\\cometSercice.ts",
       "line": 11,
       "character": 12,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
@@ -759,7 +759,7 @@
       "file": "src\\service\\cometSercice.ts",
       "line": 11,
       "character": 28,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
@@ -784,80 +784,80 @@
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 6,
       "character": 60,
       "text": "body",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 21,
       "character": 17,
       "text": "error",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 21,
       "character": 23,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 20,
       "character": 11,
       "text": "error",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 26,
       "character": 10,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 27,
       "character": 7,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 27,
       "character": 14,
       "text": "length",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 28,
       "character": 42,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 28,
       "character": 49,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 30,
       "character": 42,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
-      "file": "src\\controller\\comentsControler.ts",
+      "file": "src\\controller\\commentsControler.ts",
       "line": 30,
       "character": 49,
-      "text": "coment",
+      "text": "comments",
       "kind": 1
     },
     {
@@ -1736,84 +1736,84 @@
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 24,
       "character": 28,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 24,
       "character": 32,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 23,
       "character": 15,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 34,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 34,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 33,
       "character": 11,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 47,
       "character": 28,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 47,
       "character": 32,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 46,
       "character": 15,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 57,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 57,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comment.test.ts",
+      "file": "src\\test\\comments.test.ts",
       "line": 56,
       "character": 11,
       "text": "err",

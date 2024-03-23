@@ -5,13 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const blogsRoutes_1 = __importDefault(require("./blogsRoutes"));
-const comentRoute_1 = __importDefault(require("./comentRoute"));
+const commentsRoute_1 = __importDefault(require("./commentsRoute"));
 const likeRoute_1 = __importDefault(require("./likeRoute"));
 const querriesRoutes_1 = __importDefault(require("./querriesRoutes"));
 const usersRoutes_1 = __importDefault(require("./usersRoutes"));
 const router = express_1.default.Router();
 router.use('/blogs', blogsRoutes_1.default);
-router.use("/blogs", comentRoute_1.default);
+router.use("/blogs", commentsRoute_1.default);
 router.use("/blogs", likeRoute_1.default);
 router.use("/mybrand", querriesRoutes_1.default);
 router.use("/mybrand", usersRoutes_1.default);

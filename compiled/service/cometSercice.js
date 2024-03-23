@@ -12,33 +12,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const coments_1 = __importDefault(require("../models/coments"));
+const comments_1 = __importDefault(require("../models/comments"));
 const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
-const create_coments = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    const valid = joiValidation_1.default.validateCommentData(req.body);
+const create_comments = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    const valid = joiValidation_1.default.validatecommentsData(req.body);
     const id = { _id: req.params.id };
     if (valid.error) {
         return false;
     }
     else {
-        const created_coments = new coments_1.default({
+        const created_comments = new comments_1.default({
             visitor: req.body.visitor,
-            coment: req.body.coment,
+            comments: req.body.comments,
             blogID: id
         });
-        yield created_coments.save();
+        yield created_comments.save();
     }
 });
-const fetchComents = (req) => __awaiter(void 0, void 0, void 0, function* () {
+const fetchcomments = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = { _id: req.params.id };
-        return yield coments_1.default.find({ blogID: id });
+        return yield comments_1.default.find({ blogID: id });
     }
     catch (error) {
         throw new Error(error.message);
     }
 });
 exports.default = {
-    create_coments,
-    fetchComents
+    create_comments,
+    fetchcomments
 };
