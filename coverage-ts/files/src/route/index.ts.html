@@ -13,13 +13,13 @@
     <body>
     <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\route\index.ts</td><td class="">100.00%</td><td class="">80%</td><td class="">27</td><td class="">27</td><td class="">0</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import express, {Request, Response} from &#x27;express&#x27;;
 import blogRoute from &#x27;./blogsRoutes&#x27;;
-import comentsRoutes from &quot;./comentRoute&quot;
+import commentsRoutes from &quot;./commentsRoute&quot;
 import likeRoutes from &#x27;./likeRoute&#x27;;
 import querriesRoutes from &#x27;./querriesRoutes&#x27;;
 import usersRoutes from &#x27;./usersRoutes&#x27;;
 const router = express.Router();
 router.use(&#x27;/blogs&#x27;,blogRoute);
-router.use(&quot;/blogs&quot;,comentsRoutes);
+router.use(&quot;/blogs&quot;,commentsRoutes);
 router.use(&quot;/blogs&quot;,likeRoutes);
 router.use(&quot;/mybrand&quot;,querriesRoutes);
 router.use(&quot;/mybrand&quot;,usersRoutes);

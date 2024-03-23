@@ -166,11 +166,11 @@
 */
 /**
 * @swagger
-* /api/v1/blogs/{blogId}/coments:
+* /api/v1/blogs/{blogId}/comments:
 *  post:
 *     summary: Create a comments
 *     tags:
-*      - Comments routes
+*      - comments routes
 *     parameters:
 *       - name: blogId
 *         in: path
@@ -186,7 +186,7 @@
 *            properties:
 *              visitor:
 *                type: string
-*              coment:
+*              comments:
 *                type: string
 *     responses:
 *      201:
@@ -194,11 +194,11 @@
 */
 /**
 * @swagger
-* /api/v1/blogs/{blogId}/coments:
+* /api/v1/blogs/{blogId}/comments:
 *   get:
 *     summary: Get all comments
 *     tags:
-*      - Comments routes
+*      - comments routes
 *     parameters:
 *       - name: blogId
 *         in: path

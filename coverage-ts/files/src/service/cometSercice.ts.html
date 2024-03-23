@@ -12,35 +12,35 @@
     </head>
     <body>
     <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\service\cometSercice.ts</td><td class="">80.39%</td><td class="">80%</td><td class="">51</td><td class="">41</td><td class="">10</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import { Request,Response } from &quot;express&quot;;
-import coments from &quot;../models/coments&quot;;
+import comments from &quot;../models/comments&quot;;
 import joiValidation from &quot;../helper/joiValidation&quot;;
-const create_coments = async(req:Request) =&gt; {
-    const valid = joiValidation.validateCommentData(req.body);
+const create_comments = async(req:Request) =&gt; {
+    const valid = joiValidation.validatecommentsData(req.body);
      const id = { _id: req.params.id };
      if(valid.error){
         return false;
      }else{
-        const created_coments = new coments({
+        const created_comments = new comments({
             visitor:req.body.visitor,
-            coment:req.body.coment,
+            comments:req.body.comments,
             blogID:id
         })
-       await created_coments.save();
+       await created_comments.save();
      }
 }
-const fetchComents = async(req:Request) =&gt;{
+const fetchcomments = async(req:Request) =&gt;{
     try{
         const id = { _id: req.params.id };
-    return await coments.find({blogID:id});
+    return await comments.find({blogID:id});
     }catch(error:any){
     throw new Error(error.message);
     }
 }
 
 export default {
-    create_coments,
-    fetchComents
-}</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:4,&quot;character&quot;:56,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:12,&quot;text&quot;:&quot;visitor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:24,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:29,&quot;text&quot;:&quot;visitor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:12,&quot;text&quot;:&quot;coment&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:23,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:28,&quot;text&quot;:&quot;coment&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:20,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:26,&quot;text&quot;:&quot;message&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:21,&quot;character&quot;:11,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1}]</pre></div>
+    create_comments,
+    fetchcomments
+}</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:4,&quot;character&quot;:56,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:12,&quot;text&quot;:&quot;visitor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:24,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:10,&quot;character&quot;:29,&quot;text&quot;:&quot;visitor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:12,&quot;text&quot;:&quot;comments&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:23,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:11,&quot;character&quot;:28,&quot;text&quot;:&quot;comments&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:20,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:26,&quot;text&quot;:&quot;message&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\service\\cometSercice.ts&quot;,&quot;line&quot;:21,&quot;character&quot;:11,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1}]</pre></div>
     <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Fri, 22 Mar 2024 17:35:27 GMT</p>
     </body>
   </html>

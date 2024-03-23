@@ -16,13 +16,13 @@ const validateBlogData = (blog) => {
     });
     return blogSchema.validate(blog);
 };
-//Coment validation 
-const validateCommentData = (comment) => {
-    const commentSchema = joi_1.default.object({
+//comments validation 
+const validatecommentsData = (comments) => {
+    const commentschema = joi_1.default.object({
         visitor: joi_1.default.string().required().min(3),
-        coment: joi_1.default.string().required().min(3)
+        comments: joi_1.default.string().required().min(3)
     });
-    return commentSchema.validate(comment);
+    return commentschema.validate(comments);
 };
 //Querries validation
 const validateQuerries = (querris) => {
@@ -58,7 +58,7 @@ const loginValidation = (login) => {
 };
 exports.default = {
     validateBlogData,
-    validateCommentData,
+    validatecommentsData,
     validateQuerries,
     validateUsersData,
     likesValidatin,

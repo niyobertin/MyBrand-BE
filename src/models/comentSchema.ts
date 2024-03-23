@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-const comentsSchema = new mongoose.Schema({
+const commentsSchema = new mongoose.Schema({
     visitor:{type:String,required:true},
-    coment:{type:String,required:true},
+    comments:{type:String,required:false},
     blogID:[{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'blog'
       }]
 })
-export default mongoose.model("coment",comentsSchema);
+export default mongoose.model("comments",commentsSchema);

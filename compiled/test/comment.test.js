@@ -23,14 +23,14 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connection.close();
 }));
-describe("/api/v1/blogs/:id/comment", () => {
+describe("/api/v1/blogs/:id/comments", () => {
     try {
-        it("Should retrun stutas 201 to indicate that new comment added", () => __awaiter(void 0, void 0, void 0, function* () {
+        it("Should retrun stutas 201 to indicate that new comments added", () => __awaiter(void 0, void 0, void 0, function* () {
             const comments = {
                 visitor: "Niyonkuru",
-                coment: "blessed content or user",
+                comments: "blessed content or user",
             };
-            const res = yield request.post("/api/v1/blogs/65f9b80b46b4681aa413adb5/coments")
+            const res = yield request.post("/api/v1/blogs/65f9b80b46b4681aa413adb5/comments")
                 .send(comments);
             expect(res.status).toBe(201);
         }));
@@ -39,10 +39,10 @@ describe("/api/v1/blogs/:id/comment", () => {
         throw new Error(err.message);
     }
 });
-describe("/api/v1/blogs/65f9b80b46b4681aa413adb5/coments", () => {
+describe("/api/v1/blogs/65f9b80b46b4681aa413adb5/comments", () => {
     try {
         it("Should return status code 200 to indicate ok", () => __awaiter(void 0, void 0, void 0, function* () {
-            const res = yield request.get("/api/v1/blogs/65f9b80b46b4681aa413adb5/coments");
+            const res = yield request.get("/api/v1/blogs/65f9b80b46b4681aa413adb5/comments");
             expect(res.status).toBe(200);
         }));
     }
