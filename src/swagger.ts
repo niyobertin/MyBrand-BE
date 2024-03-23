@@ -30,7 +30,7 @@ const options = {
         description: "Local server"
       },
       {
-        url: "<your live url here>",
+        url: "https://mybrand-be-nkyz.onrender.com/",
         description: "Live server"
       },
     ]

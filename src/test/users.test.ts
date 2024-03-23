@@ -14,9 +14,9 @@ beforeAll(async() => {
 describe("/api/v1/mybrand/users",() =>{
     it("Return status 201 to indicate that new user registered",async() => {
         const users = {
-            username:"berti30",
-            email:"bertin78@gmail.com",
-            password:"ber78@4"
+            username:"berti31",
+            email:"bert34@gmail.com",
+            password:"ber34@4"
         }
         const res:Response = await request.post("/api/v1/mybrand/users")
         .send(users);

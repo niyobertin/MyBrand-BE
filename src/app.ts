@@ -1,5 +1,6 @@
 import dotenv, { config } from "dotenv";
 import express, {Request, Response} from 'express';
+import cors from 'cors'
 import cookieParser from "cookie-parser";
 import routes from "./route/index";
 import db from './config/config';
@@ -8,7 +9,8 @@ dotenv.config();
 db
     const app = express();
     app.use(express.json());
-    app.use(cookieParser())
+    app.use(cookieParser());
+    app.use(cors());
     app.use("/api/v1",routes);
     if (require.main === module) {
         const port = process.env.PORT || 3000;
