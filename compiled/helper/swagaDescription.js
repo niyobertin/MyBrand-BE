@@ -6,16 +6,14 @@
 *     security:
 *       - Authorization: []
 *     summary: Create a blog
+*     tags:
+*      - Blogs routes
 *     requestBody:
 *      required: true
 *      content:
 *        multipart/form-data:
 *           schema:
 *            type: object
-*            required:
-*              - title
-*              - image
-*              - content
 *            properties:
 *              title:
 *                type: string
@@ -35,34 +33,38 @@
 * /api/v1/blogs:
 *   get:
 *     summary: Get all blogs
+*     tags:
+*      - Blogs routes
 *     description: Retrieve a list of blogs
 *     responses:
 *       200:
 *         description: A list of blogs
-*         content:
-*           application/json:
-*             schema:
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb:
+* /api/v1/blogs/{blogId}:
 *   get:
 *     summary: Get single blog
+*     tags:
+*      - Blogs routes
 *     description: Retrieve a list of blog
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     responses:
 *       200:
-*         description: A list of blog
-*         content:
-*           application/json:
-*             schema:
-*               type: object
+*         description: ok
 */
 /**
 * @swagger
 * /api/v1/mybrand/users/login:
 *   post:
 *     summary: User login
-*     description: Authenticates a user and returns a token
+*     tags:
+*      - Users routes
 *     requestBody:
 *       required: true
 *       content:
@@ -77,21 +79,14 @@
 *     responses:
 *       200:
 *         description: Successful login
-*         content:
-*           application/json:
-*             schema:
-*               type: object
-*               properties:
-*                 token:
-*                   type: string
-*       401:
-*         description: Unauthorized
 */
 /**
 * @swagger
 * /api/v1/mybrand/users:
 *  post:
 *     summary: User register
+*     tags:
+*      - Users routes
 *     requestBody:
 *      required: true
 *      content:
@@ -117,21 +112,25 @@
 */
 /**
 * @swagger
-* '/api/v1/blogs/65fa03b7bae5c15a418f8ceb':
+* '/api/v1/blogs/{blogId}':
 *  patch:
 *     security:
 *       - Authorization: []
 *     summary: Update a blog
+*     tags:
+*      - Blogs routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     requestBody:
 *      required: false
 *      content:
 *       multipart/form-data:
 *           schema:
 *            type: object
-*            required:
-*              - title
-*              - image
-*              - content
 *            properties:
 *              title:
 *                type: string
@@ -148,34 +147,42 @@
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb:
+* /api/v1/blogs/{blogId}:
 *   delete:
 *     security:
 *       - Authorization: []
 *     summary: Delete single blog
-*     description: Delete a blog
+*     tags:
+*      - Blogs routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     responses:
 *       200:
 *         description: Blog deleted
-*         content:
-*           application/json:
-*             schema:
-*               type: object
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb/coments:
+* /api/v1/blogs/{blogId}/coments:
 *  post:
-*     summary: Create a comment
+*     summary: Create a comments
+*     tags:
+*      - Comments routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     requestBody:
 *      required: true
 *      content:
 *        application/json:
 *           schema:
 *            type: object
-*            required:
-*              - visitor
-*              - coment
 *            properties:
 *              visitor:
 *                type: string
@@ -184,15 +191,20 @@
 *     responses:
 *      201:
 *        description: Created
-*      500:
-*        description: Server Error
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb/coments:
+* /api/v1/blogs/{blogId}/coments:
 *   get:
 *     summary: Get all comments
-*     description: Retreaving comments
+*     tags:
+*      - Comments routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     responses:
 *       200:
 *         description: A list of comments
@@ -202,17 +214,23 @@
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb/likes:
+* /api/v1/blogs/{blogId}/likes:
 *  post:
 *     summary: Create a like
+*     tags:
+*      - Likes routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     requestBody:
 *      required: true
 *      content:
 *        application/json:
 *           schema:
 *            type: object
-*            required:
-*              - like
 *            properties:
 *              like:
 *                type: boolen
@@ -224,10 +242,17 @@
 */
 /**
 * @swagger
-* /api/v1/blogs/65fa03b7bae5c15a418f8ceb/likes:
+* /api/v1/blogs/{blogId}/likes:
 *   get:
 *     summary: Get all likes
-*     description: Retreaving likes
+*     tags:
+*      - Likes routes
+*     parameters:
+*       - name: blogId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     responses:
 *       200:
 *         description: A list of likes
@@ -240,6 +265,8 @@
 * /api/v1/mybrand/querries:
 *  post:
 *     summary: Posting queries
+*     tags:
+*      - Querries routes
 *     requestBody:
 *      required: true
 *      content:
@@ -247,8 +274,6 @@
 *           schema:
 *            type: object
 *            required:
-*              - visitor
-*              - message
 *            properties:
 *              visitor:
 *                type: string
@@ -257,8 +282,6 @@
 *     responses:
 *      201:
 *        description: Created
-*      500:
-*        description: Server Error
 */
 /**
 * @swagger
@@ -267,7 +290,8 @@
 *     security:
 *       - Authorization: []
 *     summary: Get all queries
-*     description: Retreaving queries
+*     tags:
+*      - Querries routes
 *     responses:
 *       200:
 *         description: A list of queries
@@ -277,12 +301,19 @@
 */
 /**
 * @swagger
-* /api/v1/mybrand/querries/65f2f374a22653f5ff591bf6:
+* /api/v1/mybrand/querries/{querryId}:
 *   delete:
 *     security:
 *       - Authorization: []
 *     summary: Delete queries
-*     description: Delete queries
+*     tags:
+*      - Querries routes
+*     parameters:
+*       - name: querryId
+*         in: path
+*         required: true
+*         schema:
+*           type: string
 *     responses:
 *       200:
 *         description: Query deleted
