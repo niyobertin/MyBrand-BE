@@ -1,14 +1,14 @@
 {
   "fileCounts": {
     "src\\middleware\\authMiddleware.ts": {
-      "correctCount": 36,
-      "totalCount": 41
+      "correctCount": 65,
+      "totalCount": 75
     },
     "src\\models\\blogs.ts": {
       "correctCount": 25,
       "totalCount": 25
     },
-    "src\\config\\cloudinary.confog.ts": {
+    "src\\config\\cloudinary.config.ts": {
       "correctCount": 20,
       "totalCount": 20
     },
@@ -18,7 +18,7 @@
     },
     "src\\service\\blogService.ts": {
       "correctCount": 77,
-      "totalCount": 130
+      "totalCount": 128
     },
     "src\\helper\\joiValidation.ts": {
       "correctCount": 154,
@@ -29,12 +29,12 @@
       "totalCount": 127
     },
     "src\\helper\\muliter.ts": {
-      "correctCount": 42,
-      "totalCount": 42
+      "correctCount": 51,
+      "totalCount": 55
     },
     "src\\route\\blogsRoutes.ts": {
-      "correctCount": 40,
-      "totalCount": 40
+      "correctCount": 39,
+      "totalCount": 39
     },
     "src\\models\\comments.ts": {
       "correctCount": 22,
@@ -49,8 +49,8 @@
       "totalCount": 63
     },
     "src\\route\\commentsRoute.ts": {
-      "correctCount": 16,
-      "totalCount": 16
+      "correctCount": 17,
+      "totalCount": 17
     },
     "src\\models\\like.ts": {
       "correctCount": 18,
@@ -65,12 +65,8 @@
       "totalCount": 86
     },
     "src\\route\\likeRoute.ts": {
-      "correctCount": 20,
-      "totalCount": 20
-    },
-    "src\\helper\\jwt.ts": {
-      "correctCount": 45,
-      "totalCount": 56
+      "correctCount": 21,
+      "totalCount": 21
     },
     "src\\models\\querries.ts": {
       "correctCount": 15,
@@ -85,24 +81,28 @@
       "totalCount": 86
     },
     "src\\route\\querriesRoutes.ts": {
-      "correctCount": 22,
-      "totalCount": 22
+      "correctCount": 21,
+      "totalCount": 21
     },
     "src\\models\\user.ts": {
-      "correctCount": 22,
-      "totalCount": 22
+      "correctCount": 25,
+      "totalCount": 25
     },
     "src\\service\\usersService.ts": {
-      "correctCount": 57,
-      "totalCount": 92
+      "correctCount": 109,
+      "totalCount": 158
+    },
+    "src\\helper\\jwt.ts": {
+      "correctCount": 45,
+      "totalCount": 56
     },
     "src\\controller\\usersController.ts": {
-      "correctCount": 101,
-      "totalCount": 119
+      "correctCount": 140,
+      "totalCount": 170
     },
     "src\\route\\usersRoutes.ts": {
-      "correctCount": 20,
-      "totalCount": 20
+      "correctCount": 24,
+      "totalCount": 24
     },
     "src\\route\\index.ts": {
       "correctCount": 27,
@@ -113,26 +113,26 @@
       "totalCount": 9
     },
     "src\\swagger.ts": {
-      "correctCount": 39,
-      "totalCount": 43
+      "correctCount": 37,
+      "totalCount": 41
     },
     "src\\app.ts": {
-      "correctCount": 41,
-      "totalCount": 41
+      "correctCount": 45,
+      "totalCount": 45
     },
     "src\\helper\\swagaDescription.ts": {
       "correctCount": 0,
       "totalCount": 0
     },
-    "src\\models\\commentschema.ts": {
+    "src\\models\\comentSchema.ts": {
       "correctCount": 22,
       "totalCount": 22
     },
     "src\\test\\blogs.test.ts": {
-      "correctCount": 91,
-      "totalCount": 97
+      "correctCount": 94,
+      "totalCount": 100
     },
-    "src\\test\\comments.test.ts": {
+    "src\\test\\comment.test.ts": {
       "correctCount": 78,
       "totalCount": 90
     },
@@ -177,6 +177,41 @@
     {
       "file": "src\\middleware\\authMiddleware.ts",
       "line": 10,
+      "character": 27,
+      "text": "decode",
+      "kind": 1
+    },
+    {
+      "file": "src\\middleware\\authMiddleware.ts",
+      "line": 21,
+      "character": 61,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\middleware\\authMiddleware.ts",
+      "line": 21,
+      "character": 69,
+      "text": "decode",
+      "kind": 1
+    },
+    {
+      "file": "src\\middleware\\authMiddleware.ts",
+      "line": 22,
+      "character": 15,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\middleware\\authMiddleware.ts",
+      "line": 25,
+      "character": 20,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\middleware\\authMiddleware.ts",
+      "line": 25,
       "character": 27,
       "text": "decode",
       "kind": 1
@@ -344,231 +379,217 @@
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 50,
+      "line": 49,
       "character": 16,
       "text": "blogimg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 53,
+      "line": 52,
       "character": 14,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 54,
+      "line": 53,
       "character": 12,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 57,
+      "line": 56,
       "character": 19,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 57,
+      "line": 56,
       "character": 24,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 58,
+      "line": 57,
       "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 58,
+      "line": 57,
       "character": 29,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 58,
+      "line": 57,
       "character": 41,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 58,
+      "line": 57,
       "character": 46,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 60,
+      "line": 59,
       "character": 19,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 60,
+      "line": 59,
       "character": 24,
       "text": "image",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 61,
+      "line": 60,
       "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 61,
+      "line": 60,
       "character": 29,
       "text": "image",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 61,
-      "character": 48,
-      "text": "update_blogs",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 61,
-      "character": 61,
-      "text": "image",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 62,
       "character": 19,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 62,
       "character": 24,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 64,
+      "line": 63,
       "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 64,
+      "line": 63,
       "character": 29,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 64,
+      "line": 63,
       "character": 43,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 64,
+      "line": 63,
       "character": 48,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 67,
+      "line": 66,
       "character": 14,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 67,
+      "line": 66,
       "character": 27,
       "text": "save",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 68,
+      "line": 67,
       "character": 15,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 70,
+      "line": 69,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 70,
+      "line": 69,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 69,
+      "line": 68,
       "character": 11,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 77,
+      "line": 76,
       "character": 18,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 78,
+      "line": 77,
       "character": 16,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 81,
+      "line": 80,
       "character": 23,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 84,
+      "line": 83,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 84,
+      "line": 83,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 83,
+      "line": 82,
       "character": 15,
       "text": "error",
       "kind": 1
@@ -714,9 +735,37 @@
       "kind": 1
     },
     {
+      "file": "src\\helper\\muliter.ts",
+      "line": 22,
+      "character": 2,
+      "text": "Message",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\muliter.ts",
+      "line": 22,
+      "character": 10,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\muliter.ts",
+      "line": 22,
+      "character": 16,
+      "text": "message",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\muliter.ts",
+      "line": 20,
+      "character": 9,
+      "text": "error",
+      "kind": 1
+    },
+    {
       "file": "src\\service\\cometSercice.ts",
       "line": 4,
-      "character": 56,
+      "character": 57,
       "text": "body",
       "kind": 1
     },
@@ -751,14 +800,14 @@
     {
       "file": "src\\service\\cometSercice.ts",
       "line": 11,
-      "character": 23,
+      "character": 25,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\cometSercice.ts",
       "line": 11,
-      "character": 28,
+      "character": 30,
       "text": "comments",
       "kind": 1
     },
@@ -786,7 +835,7 @@
     {
       "file": "src\\controller\\commentsControler.ts",
       "line": 6,
-      "character": 60,
+      "character": 61,
       "text": "body",
       "kind": 1
     },
@@ -828,7 +877,7 @@
     {
       "file": "src\\controller\\commentsControler.ts",
       "line": 27,
-      "character": 14,
+      "character": 16,
       "text": "length",
       "kind": 1
     },
@@ -842,7 +891,7 @@
     {
       "file": "src\\controller\\commentsControler.ts",
       "line": 28,
-      "character": 49,
+      "character": 51,
       "text": "comments",
       "kind": 1
     },
@@ -856,7 +905,7 @@
     {
       "file": "src\\controller\\commentsControler.ts",
       "line": 30,
-      "character": 49,
+      "character": 51,
       "text": "comments",
       "kind": 1
     },
@@ -1026,83 +1075,6 @@
       "line": 35,
       "character": 13,
       "text": "deletedCount",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 6,
-      "character": 21,
-      "text": "user",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 7,
-      "character": 27,
-      "text": "email",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 7,
-      "character": 33,
-      "text": "user",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 7,
-      "character": 38,
-      "text": "email",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 13,
-      "character": 10,
-      "text": "accessToken",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 14,
-      "character": 8,
-      "text": "accessToken",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 18,
-      "character": 16,
-      "text": "authenticated",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 22,
-      "character": 16,
-      "text": "authenticated",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 26,
-      "character": 41,
-      "text": "error",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 26,
-      "character": 47,
-      "text": "err",
-      "kind": 1
-    },
-    {
-      "file": "src\\helper\\jwt.ts",
-      "line": 25,
-      "character": 15,
-      "text": "err",
       "kind": 1
     },
     {
@@ -1296,247 +1268,422 @@
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 7,
+      "line": 23,
+      "character": 24,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 23,
+      "character": 28,
+      "text": "message",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 22,
+      "character": 10,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 31,
       "character": 58,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 8,
+      "line": 32,
       "character": 15,
       "text": "username",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 8,
+      "line": 32,
       "character": 24,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 8,
+      "line": 32,
       "character": 30,
       "text": "password",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 8,
+      "line": 32,
       "character": 46,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 58,
       "text": "username",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 67,
       "text": "username",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 78,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 84,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 92,
       "text": "password",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 9,
+      "line": 33,
       "character": 101,
       "text": "password",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 17,
+      "line": 41,
       "character": 20,
       "text": "username",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 17,
+      "line": 41,
       "character": 29,
       "text": "username",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 18,
+      "line": 42,
       "character": 20,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 18,
+      "line": 42,
       "character": 26,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 27,
+      "line": 51,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 27,
+      "line": 51,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 26,
+      "line": 50,
       "character": 11,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 32,
+      "line": 56,
       "character": 58,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 33,
+      "line": 57,
       "character": 15,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 33,
+      "line": 57,
       "character": 28,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 34,
+      "line": 58,
       "character": 14,
       "text": "user",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 34,
+      "line": 58,
       "character": 40,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 34,
+      "line": 58,
       "character": 46,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 35,
+      "line": 59,
       "character": 12,
       "text": "user",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 38,
+      "line": 62,
       "character": 19,
       "text": "user",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 41,
+      "line": 65,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 41,
+      "line": 65,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 40,
+      "line": 64,
       "character": 11,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 49,
+      "line": 70,
+      "character": 58,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 71,
+      "character": 15,
+      "text": "email",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 71,
+      "character": 28,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 72,
+      "character": 14,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 72,
+      "character": 40,
+      "text": "email",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 72,
+      "character": 46,
+      "text": "email",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 73,
+      "character": 12,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 76,
+      "character": 19,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 79,
+      "character": 24,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 79,
+      "character": 28,
+      "text": "message",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 78,
+      "character": 11,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\usersService.ts",
+      "line": 86,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 49,
+      "line": 86,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 48,
+      "line": 85,
       "character": 15,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 58,
+      "line": 95,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 58,
+      "line": 95,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 57,
+      "line": 94,
       "character": 11,
       "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 6,
+      "character": 21,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 7,
+      "character": 27,
+      "text": "email",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 7,
+      "character": 33,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 7,
+      "character": 38,
+      "text": "email",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 13,
+      "character": 10,
+      "text": "accessToken",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 14,
+      "character": 8,
+      "text": "accessToken",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 18,
+      "character": 16,
+      "text": "authenticated",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 22,
+      "character": 16,
+      "text": "authenticated",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 26,
+      "character": 41,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 26,
+      "character": 47,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\helper\\jwt.ts",
+      "line": 25,
+      "character": 15,
+      "text": "err",
       "kind": 1
     },
     {
@@ -1666,29 +1813,113 @@
       "kind": 1
     },
     {
+      "file": "src\\controller\\usersController.ts",
+      "line": 64,
+      "character": 58,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 65,
+      "character": 15,
+      "text": "password",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 65,
+      "character": 31,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 66,
+      "character": 14,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 67,
+      "character": 12,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 73,
+      "character": 37,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 73,
+      "character": 42,
+      "text": "password",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 81,
+      "character": 20,
+      "text": "accessToken",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 81,
+      "character": 50,
+      "text": "user",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 90,
+      "character": 24,
+      "text": "err",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 90,
+      "character": 28,
+      "text": "message",
+      "kind": 1
+    },
+    {
+      "file": "src\\controller\\usersController.ts",
+      "line": 89,
+      "character": 11,
+      "text": "err",
+      "kind": 1
+    },
+    {
       "file": "src\\swagger.ts",
-      "line": 41,
+      "line": 37,
       "character": 21,
       "text": "app",
       "kind": 1
     },
     {
       "file": "src\\swagger.ts",
-      "line": 41,
+      "line": 37,
       "character": 30,
       "text": "port",
       "kind": 1
     },
     {
       "file": "src\\swagger.ts",
-      "line": 42,
+      "line": 38,
       "character": 2,
       "text": "app",
       "kind": 1
     },
     {
       "file": "src\\swagger.ts",
-      "line": 42,
+      "line": 38,
       "character": 6,
       "text": "use",
       "kind": 1
@@ -1736,92 +1967,92 @@
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 24,
       "character": 28,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 24,
       "character": 32,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 23,
       "character": 15,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 34,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 34,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 33,
       "character": 11,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 47,
       "character": 28,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 47,
       "character": 32,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 46,
       "character": 15,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 57,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 57,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
-      "file": "src\\test\\comments.test.ts",
+      "file": "src\\test\\comment.test.ts",
       "line": 56,
       "character": 11,
       "text": "err",
       "kind": 1
     }
   ],
-  "percentage": 86.98965704953729,
-  "total": 1837,
-  "covered": 1598,
-  "uncovered": 239
+  "percentage": 86.47439085032322,
+  "total": 2011,
+  "covered": 1739,
+  "uncovered": 272
 }

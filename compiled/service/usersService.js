@@ -35,9 +35,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv_1 = __importDefault(require("dotenv"));
 const bcrypt = __importStar(require("bcrypt"));
 const user_1 = __importDefault(require("../models/user"));
 const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
+dotenv_1.default.config();
+const adminRegister = () => __awaiter(void 0, void 0, void 0, function* () {
+    const adpassword = yield bcrypt.hash(`${process.env.ADMIN_PASSWORD}`, 10);
+    const registerd_admin = yield user_1.default.findOne({ $or: [{ username: process.env.ADMIN_NAME }, { email: process.env.ADMIN_EMAIL }] });
+    try {
+        const admin = new user_1.default({
+            username: process.env.ADMIN_NAME,
+            email: process.env.ADMIN_EMAIL,
+            role: "admin",
+            password: adpassword
+        });
+        if (!registerd_admin) {
+            admin.save();
+        }
+        else {
+            return -1;
+        }
+    }
+    catch (err) {
+        throw new Error(err.message);
+    }
+});
+adminRegister();
 const users_register = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const valid = joiValidation_1.default.validateUsersData(req.body);
@@ -81,7 +105,22 @@ const userLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(err.message);
     }
 });
-//Retriving all users
+const adminLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const valid = joiValidation_1.default.validateUsersData(req.body);
+        const { email } = req.body;
+        const user = user_1.default.findOne({ email: email });
+        if (!user) {
+            return false;
+        }
+        else {
+            return user;
+        }
+    }
+    catch (err) {
+        throw new Error(err.message);
+    }
+});
 const retrieve = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         return yield user_1.default.find();
@@ -102,6 +141,7 @@ const gettingLoggedInUser = () => __awaiter(void 0, void 0, void 0, function* ()
 exports.default = {
     users_register,
     userLogin,
+    adminLogin,
     gettingLoggedInUser,
     retrieve
 };

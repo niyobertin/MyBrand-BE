@@ -31,7 +31,7 @@ describe("Get all blogs", () => {
 });
 describe("Get single blog", () => {
     it("Should return status code 200 to indicate ok for obtained single blog", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get("/api/v1/blogs/65fa03b7bae5c15a418f8ceb");
+        const response = yield request.get("/api/v1/blogs/65fc01ad66fefa1c47d2f93f");
         expect(response.status).toBe(200);
     }));
 });
@@ -40,9 +40,9 @@ describe('Log in', () => {
     it('Should login session successfully', () => __awaiter(void 0, void 0, void 0, function* () {
         const loggedInUser = {
             email: "niyonkurubbertin@gmail.com",
-            password: "bertin12",
+            password: `${process.env.ADMIN_PASSWORD}`,
         };
-        const response = yield request.post("/api/v1/mybrand/users/login")
+        const response = yield request.post("/api/v1/mybrand/users/admin/login")
             .send(loggedInUser);
         expect(response.status).toBe(200);
         token = response.body.token;

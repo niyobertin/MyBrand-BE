@@ -1,5 +1,5 @@
 import cloudinary from 'cloudinary';
-import cloudinarys from '../config/cloudinary.confog';
+import cloudinarys from '../config/cloudinary.config';
 cloudinarys
 export const uploadToCloud = async (file: Express.Multer.File) => {
   try {

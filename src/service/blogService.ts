@@ -45,8 +45,7 @@ const updateBlogs = async(req:Request) => {
     try{
         let blogimg;
             if(req.file){
-                blogimg = await uploadToCloud(req.file);
-                
+                blogimg = await uploadToCloud(req.file);  
             }else{
                 blogimg = null;
             }
@@ -59,7 +58,7 @@ const updateBlogs = async(req:Request) => {
                 update_blogs.title = req.body.title
             }
             if(req.body.image){
-                update_blogs.image = blogimg || update_blogs.image
+                update_blogs.image = blogimg
             }
             if(req.body.content){
                 update_blogs.content = req.body.content

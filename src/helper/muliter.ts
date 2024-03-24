@@ -5,13 +5,24 @@ import path from 'path';
 const exts = ['.png', '.jpg', '.jpeg', '.gif', '.tif', '.webp', '.bmp', '.tiff', '.jfif'];
 
 const customFileFilter = (req: Request, res: Response, next: NextFunction) => {
-  const file = req.file as Express.Multer.File;  
-
-  const ext = path.extname(file.originalname).toLowerCase();
-  if (!exts.includes(ext)) {
-    return res.status(400).json({ error: 'Invalid file type.' });
-  }
-  next();
+try{
+    const file = req.file as Express.Multer.File;  
+    if(file === undefined){
+      res.status(400).json({
+        Message:"Please Upload the image"
+       })
+    }else{
+      const ext = path.extname(file.originalname).toLowerCase();
+      if (!exts.includes(ext)) {
+        return res.status(400).json({ error: 'Invalid file type.' });
+      }
+      next();
+    }
+  }catch(error:any){ 
+  res.status(400).json({
+  Message:error.message
+ })
+}
 };
 
 const fileUpload: Multer = multer({

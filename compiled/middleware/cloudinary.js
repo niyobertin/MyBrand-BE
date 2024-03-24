@@ -14,8 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.uploadToCloud = void 0;
 const cloudinary_1 = __importDefault(require("cloudinary"));
-const cloudinary_confog_1 = __importDefault(require("../config/cloudinary.confog"));
-cloudinary_confog_1.default;
+const cloudinary_config_1 = __importDefault(require("../config/cloudinary.config"));
+cloudinary_config_1.default;
 const uploadToCloud = (file) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const uploadedImage = yield cloudinary_1.default.v2.uploader.upload(file.path, {
