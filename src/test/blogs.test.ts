@@ -21,7 +21,7 @@ beforeAll(async() => {
    
    describe("Get single blog",()=>{
     it("Should return status code 200 to indicate ok for obtained single blog",async() =>{
-      const response: Response = await request.get("/api/v1/blogs/65fa03b7bae5c15a418f8ceb");
+      const response: Response = await request.get("/api/v1/blogs/65fc01ad66fefa1c47d2f93f");
       expect(response.status).toBe(200);
     })
   })
@@ -31,9 +31,9 @@ beforeAll(async() => {
     it('Should login session successfully',async() =>{
       const loggedInUser = {
         email:"niyonkurubbertin@gmail.com",
-        password:"bertin12",
+        password:`${process.env.ADMIN_PASSWORD}`,
       };
-      const response:Response = await request.post("/api/v1/mybrand/users/login")
+      const response:Response = await request.post("/api/v1/mybrand/users/admin/login")
       .send(loggedInUser);
       expect(response.status).toBe(200);
       token = response.body.token;
