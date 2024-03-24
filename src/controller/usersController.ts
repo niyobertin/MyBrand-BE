@@ -52,7 +52,7 @@ const login = async(req:Request,res:Response) =>{
                     res.status(200).json({
                         status:200,
                         token:accessToken
-                    });
+                    }); 
                 }
             }) 
         }
