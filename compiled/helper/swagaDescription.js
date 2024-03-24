@@ -82,6 +82,28 @@
 */
 /**
 * @swagger
+* /api/v1/mybrand/users/admin/login:
+*   post:
+*     summary: Admin login
+*     tags:
+*      - Users routes
+*     requestBody:
+*       required: true
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             properties:
+*               email:
+*                 type: string
+*               password:
+*                 type: string
+*     responses:
+*       200:
+*         description: Successful login
+*/
+/**
+* @swagger
 * /api/v1/mybrand/users:
 *  post:
 *     summary: User register
