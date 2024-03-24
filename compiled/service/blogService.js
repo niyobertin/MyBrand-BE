@@ -75,7 +75,7 @@ const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
                 update_blogs.title = req.body.title;
             }
             if (req.body.image) {
-                update_blogs.image = blogimg || update_blogs.image;
+                update_blogs.image = blogimg;
             }
             if (req.body.content) {
                 update_blogs.content = req.body.content;
