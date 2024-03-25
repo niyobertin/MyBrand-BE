@@ -32,3 +32,8 @@ jobs:
     - run: npm run build --if-present
     - name: Run tests with coverage
       run: npm test -- --coverage --coverageReporters=text-lcov > coverage.lcov
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: niyobertin/MyBrand-BE
