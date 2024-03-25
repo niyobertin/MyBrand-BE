@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const blogs_1 = __importDefault(require("../models/blogs"));
 const cloudinary_1 = require("../middleware/cloudinary");
-//creating a blog
 const createBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let blogimg;
@@ -36,7 +35,6 @@ const createBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(err.message);
     }
 });
-//Retriving all blog
 const retrieveBlogs = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         return yield blogs_1.default.find();
@@ -45,7 +43,6 @@ const retrieveBlogs = () => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(error.message);
     }
 });
-//Retriving a  blog
 const retrieveSingleBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = { _id: req.params.id };
@@ -55,7 +52,6 @@ const retrieveSingleBlogs = (req) => __awaiter(void 0, void 0, void 0, function*
         throw new Error(error.message);
     }
 });
-//updating a blog
 const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let blogimg;
@@ -88,7 +84,6 @@ const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(error.message);
     }
 });
-//removing a blog
 const removeBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = { _id: req.params.id };

@@ -10,6 +10,20 @@ beforeAll(async() => {
   afterAll(async () => {
     await mongoose.connection.close();
   });
+  
+  let token:any;
+  describe('Log in',() =>{
+    it('Should login session successfully',async() =>{
+      const loggedInUser = {
+        email:"niyonkurubbertin@gmail.com",
+        password:`${process.env.ADMIN_PASSWORD}`,
+      };
+      const response:Response = await request.post("/api/v1/mybrand/users/admin/login")
+      .send(loggedInUser);
+      expect(response.status).toBe(200);
+      token = response.body.token;
+    })
+   })
 
 describe("Creating new queries",() => {
   const query = {

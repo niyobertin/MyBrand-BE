@@ -90,7 +90,7 @@
     },
     "src\\service\\usersService.ts": {
       "correctCount": 109,
-      "totalCount": 158
+      "totalCount": 153
     },
     "src\\helper\\jwt.ts": {
       "correctCount": 45,
@@ -137,12 +137,12 @@
       "totalCount": 90
     },
     "src\\test\\queries.test.ts": {
-      "correctCount": 38,
-      "totalCount": 38
+      "correctCount": 57,
+      "totalCount": 61
     },
     "src\\test\\users.test.ts": {
-      "correctCount": 39,
-      "totalCount": 39
+      "correctCount": 61,
+      "totalCount": 63
     }
   },
   "anys": [
@@ -239,357 +239,357 @@
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 7,
+      "line": 6,
       "character": 16,
       "text": "blogimg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 9,
+      "line": 8,
       "character": 16,
       "text": "blogimg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 12,
+      "line": 11,
       "character": 16,
       "text": "blogimg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 15,
+      "line": 14,
       "character": 16,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 15,
+      "line": 14,
       "character": 26,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 15,
+      "line": 14,
       "character": 31,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 17,
+      "line": 16,
       "character": 16,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 17,
+      "line": 16,
       "character": 28,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 17,
+      "line": 16,
       "character": 33,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 22,
+      "line": 21,
       "character": 24,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 22,
+      "line": 21,
       "character": 28,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 21,
+      "line": 20,
       "character": 11,
       "text": "err",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 30,
+      "line": 28,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 30,
+      "line": 28,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 29,
+      "line": 27,
       "character": 15,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 39,
+      "line": 36,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 39,
+      "line": 36,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 38,
+      "line": 35,
       "character": 15,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 45,
+      "line": 41,
       "character": 12,
       "text": "blogimg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 47,
+      "line": 43,
       "character": 16,
       "text": "blogimg",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\blogService.ts",
+      "line": 45,
+      "character": 16,
+      "text": "blogimg",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\blogService.ts",
+      "line": 48,
+      "character": 14,
+      "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
       "line": 49,
-      "character": 16,
-      "text": "blogimg",
+      "character": 12,
+      "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
       "line": 52,
-      "character": 14,
+      "character": 19,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\blogService.ts",
+      "line": 52,
+      "character": 24,
+      "text": "title",
+      "kind": 1
+    },
+    {
+      "file": "src\\service\\blogService.ts",
+      "line": 53,
+      "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
       "line": 53,
-      "character": 12,
-      "text": "update_blogs",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 56,
-      "character": 19,
-      "text": "body",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 56,
-      "character": 24,
-      "text": "title",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 57,
-      "character": 16,
-      "text": "update_blogs",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\blogService.ts",
-      "line": 57,
       "character": 29,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 57,
+      "line": 53,
       "character": 41,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 57,
+      "line": 53,
       "character": 46,
       "text": "title",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 59,
+      "line": 55,
       "character": 19,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 59,
+      "line": 55,
       "character": 24,
       "text": "image",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 60,
+      "line": 56,
       "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 60,
+      "line": 56,
       "character": 29,
       "text": "image",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 62,
+      "line": 58,
       "character": 19,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 62,
+      "line": 58,
       "character": 24,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 59,
       "character": 16,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 59,
       "character": 29,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 59,
       "character": 43,
       "text": "body",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 63,
+      "line": 59,
       "character": 48,
       "text": "content",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 66,
+      "line": 62,
       "character": 14,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 66,
+      "line": 62,
       "character": 27,
       "text": "save",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 67,
+      "line": 63,
       "character": 15,
       "text": "update_blogs",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 69,
+      "line": 65,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 69,
+      "line": 65,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 68,
+      "line": 64,
       "character": 11,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 76,
+      "line": 71,
       "character": 18,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 77,
+      "line": 72,
       "character": 16,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 80,
+      "line": 75,
       "character": 23,
       "text": "deleteBlg",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 83,
+      "line": 78,
       "character": 24,
       "text": "error",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 83,
+      "line": 78,
       "character": 30,
       "text": "message",
       "kind": 1
     },
     {
       "file": "src\\service\\blogService.ts",
-      "line": 82,
+      "line": 77,
       "character": 15,
       "text": "error",
       "kind": 1
@@ -1332,35 +1332,14 @@
     {
       "file": "src\\service\\usersService.ts",
       "line": 33,
-      "character": 67,
-      "text": "username",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\usersService.ts",
-      "line": 33,
-      "character": 78,
+      "character": 69,
       "text": "email",
       "kind": 1
     },
     {
       "file": "src\\service\\usersService.ts",
       "line": 33,
-      "character": 84,
-      "text": "email",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\usersService.ts",
-      "line": 33,
-      "character": 92,
-      "text": "password",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\usersService.ts",
-      "line": 33,
-      "character": 101,
+      "character": 77,
       "text": "password",
       "kind": 1
     },
@@ -1373,22 +1352,8 @@
     },
     {
       "file": "src\\service\\usersService.ts",
-      "line": 41,
-      "character": 29,
-      "text": "username",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\usersService.ts",
       "line": 42,
       "character": 20,
-      "text": "email",
-      "kind": 1
-    },
-    {
-      "file": "src\\service\\usersService.ts",
-      "line": 42,
-      "character": 26,
       "text": "email",
       "kind": 1
     },
@@ -2049,10 +2014,52 @@
       "character": 11,
       "text": "err",
       "kind": 1
+    },
+    {
+      "file": "src\\test\\queries.test.ts",
+      "line": 13,
+      "character": 6,
+      "text": "token",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\queries.test.ts",
+      "line": 23,
+      "character": 6,
+      "text": "token",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\queries.test.ts",
+      "line": 23,
+      "character": 23,
+      "text": "body",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\queries.test.ts",
+      "line": 23,
+      "character": 28,
+      "text": "token",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\users.test.ts",
+      "line": 21,
+      "character": 14,
+      "text": "existingUser",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\users.test.ts",
+      "line": 22,
+      "character": 11,
+      "text": "existingUser",
+      "kind": 1
     }
   ],
-  "percentage": 86.47439085032322,
-  "total": 2011,
-  "covered": 1739,
-  "uncovered": 272
+  "percentage": 86.70238675109596,
+  "total": 2053,
+  "covered": 1780,
+  "uncovered": 273
 }
