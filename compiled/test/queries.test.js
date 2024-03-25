@@ -23,6 +23,19 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connection.close();
 }));
+let token;
+describe('Log in', () => {
+    it('Should login session successfully', () => __awaiter(void 0, void 0, void 0, function* () {
+        const loggedInUser = {
+            email: "niyonkurubbertin@gmail.com",
+            password: `${process.env.ADMIN_PASSWORD}`,
+        };
+        const response = yield request.post("/api/v1/mybrand/users/admin/login")
+            .send(loggedInUser);
+        expect(response.status).toBe(200);
+        token = response.body.token;
+    }));
+});
 describe("Creating new queries", () => {
     const query = {
         visitor: "iradukunda jean",

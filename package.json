@@ -7,7 +7,7 @@
     "swagger": "swagger-jsdoc -d src/swaggerDef.js src/**/*.ts",
     "coverage": "typescript-coverage-report",
     "dev": "nodemon ./compiled/app.js",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=5000"
   },
   "author": "",
   "license": "ISC",
