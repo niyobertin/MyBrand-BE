@@ -227,15 +227,6 @@
 *         required: true
 *         schema:
 *           type: string
-*     requestBody:
-*      required: true
-*      content:
-*        application/json:
-*           schema:
-*            type: object
-*            properties:
-*              like:
-*                type: boolen
 *     responses:
 *      201:
 *        description: Created
