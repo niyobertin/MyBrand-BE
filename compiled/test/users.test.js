@@ -22,9 +22,8 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connect(`${process.env.URL}`);
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    // await mongoose.connection.close();
 }));
-describe("/api/v1/mybrand/users", () => {
+describe("/api/v1/users", () => {
     it("Return status 201 to indicate that new user registered", () => __awaiter(void 0, void 0, void 0, function* () {
         const users = {
             username: "berti3",
@@ -36,7 +35,7 @@ describe("/api/v1/mybrand/users", () => {
             user_1.default.deleteOne({ $or: [{ username: users.username }, { email: users.email }, { password: users.password }] });
         }
         else {
-            const res = yield request.post("/api/v1/mybrand/users")
+            const res = yield request.post("/api/v1/users")
                 .send(users);
             expect(res.status).toBe(201);
         }

@@ -1,38 +1,20 @@
-import { Request,Response } from "express";
-import likes from "../models/like"
-import joiValidation from "../helper/joiValidation";
-const create_likes = async(req:Request) => {
-    const valid = joiValidation.likesValidatin(req.body);
-     const id = { _id: req.params.id };
-     if(valid.error){
-        return false
-     }else{
-        const created_likes = new likes({
-            like:req.body.like,
-            blogID:id
-        })
-       await created_likes.save();
-     } 
+import Likes from "../models/like";
+export const createLike = async (id: string, user: string) => {
+    const Like = await Likes.create({
+        blog: id,
+        user: user,
+    });
+    return Like;
 }
-const fetchlikes = async(req:Request) =>{
-    try{
-        const id = { _id: req.params.id };
-    return await likes.find({blogID:id});
-    }catch(error:any){
-    throw new Error(error.message);
-    }
+export const getSingleLike = async (blogId: string, userId: string) => {
+    const like = await Likes.findOne({ blog: blogId, user: userId});
+    return like;
 }
-const remove_likes = async(req:Request) =>{
-    try{
-        const id = { _id: req.params.id };
-    return await likes.deleteOne(id);
-    }catch(error:any){
-    throw new Error(error.message);
-    }
+export const dislike = async (id: string) => {
+    const like = await Likes.findByIdAndDelete(id)
+    return null;
 }
-
-export default {
-    create_likes,
-    fetchlikes,
-    remove_likes
+export const getAllLikes = async (id: string) => {
+    const likes = await Likes.find({ blog: id });
+    return likes;
 }

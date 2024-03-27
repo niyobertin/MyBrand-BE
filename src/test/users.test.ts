@@ -9,10 +9,9 @@ beforeAll(async() => {
     await mongoose.connect(`${process.env.URL}`);
   });
   afterAll(async () => {
-    // await mongoose.connection.close();
   });
 
-describe("/api/v1/mybrand/users",() =>{
+describe("/api/v1/users",() =>{
     it("Return status 201 to indicate that new user registered",async() => {
         const users = {
             username:"berti3",
@@ -23,7 +22,7 @@ describe("/api/v1/mybrand/users",() =>{
         if(existingUser){
           User.deleteOne({$or:[{username:users.username},{email:users.email},{password:users.password}] })
         }else{
-        const res:Response = await request.post("/api/v1/mybrand/users")
+        const res:Response = await request.post("/api/v1/users")
        
         .send(users);
         expect(res.status).toBe(201);

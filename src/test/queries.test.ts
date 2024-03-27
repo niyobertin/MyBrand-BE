@@ -18,7 +18,7 @@ beforeAll(async() => {
         email:"niyonkurubbertin@gmail.com",
         password:`${process.env.ADMIN_PASSWORD}`,
       };
-      const response:Response = await request.post("/api/v1/mybrand/users/admin/login")
+      const response:Response = await request.post("/api/v1/users/login")
       .send(loggedInUser);
       expect(response.status).toBe(200);
       token = response.body.token;
@@ -31,7 +31,7 @@ describe("Creating new queries",() => {
     message:"we need to talk to you"
   }
   it("Should retrun status code to 201 to idnicate that new query created",async() =>{
-    const response: Response = await request.post("/api/v1/mybrand/querries")
+    const response: Response = await request.post("/api/v1/querries")
     .send(query);
     expect(response.status).toBe(201);
   })

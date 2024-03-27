@@ -1,7 +1,7 @@
 import {Request,Response,NextFunction} from "express";
 import userService from '../service/usersService';
 import joiValidation from "../helper/joiValidation";
-import authMiddleware from "../middleware/authMiddleware";
+import {authotication,authoticateAdmin} from "../middleware/authMiddleware";
 import Jwt from "../helper/jwt";
 import bcrypt from "bcrypt"
 
@@ -49,42 +49,12 @@ const login = async(req:Request,res:Response) =>{
                     });
                 }else{
                     accessToken = Jwt.createToken(user);
-                    res.status(200).json({
-                        status:200,
-                        token:accessToken
-                    }); 
-                }
-            }) 
-        }
-    }catch(err:any){
-        throw new Error(err.message);
-    }
-}
-const adminLogin = async(req:Request,res:Response) =>{
-    try{
-        const valid = joiValidation.validateUsersData(req.body);
-        const {password} = req.body;
-        const user = await userService.adminLogin(req);
-        if(!user){
-            res.status(404).json({
-                status:404,
-                message:'User Not Found ! Please Register new ancount '
-            }); 
-        }else{
-             bcrypt.compare(password,user.password)
-            .then((match) =>{
-                if(!match){
-                    res.status(400).json({
-                        status:400,
-                        message:'Bad combination of email and password!'
-                    });
-                }else{
-                    accessToken = Jwt.createToken(user);
-                    res.status(200).json({
-                        status:200,
-                        token:accessToken
-                    });
-                }
+                        res.status(200).json({
+                            status:200,
+                            message:"Logged in",
+                            token:accessToken
+                        });
+                    } 
             }) 
         }
     }catch(err:any){
@@ -109,6 +79,5 @@ const allusers = async(req:Request,res:Response) =>{
 export default {
     register,
     login,
-    adminLogin,
     allusers
 }
