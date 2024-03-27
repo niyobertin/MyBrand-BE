@@ -216,6 +216,8 @@
 * @swagger
 * /api/v1/blogs/{blogId}/likes:
 *  post:
+*     security:
+*       - Authorization: []
 *     summary: Create a like
 *     tags:
 *      - Likes routes
