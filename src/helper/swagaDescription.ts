@@ -61,35 +61,11 @@
  *         description: ok
  */
 
-
-    /**
- * @swagger
- * /api/v1/mybrand/users/login:
- *   post:
- *     summary: User login
-*     tags:
- *      - Users routes
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       200:
- *         description: Successful login
- */
-
       /**
  * @swagger
- * /api/v1/mybrand/users/admin/login:
+ * /api/v1/users/login:
  *   post:
- *     summary: Admin login
+ *     summary: Login
  *     tags:
  *      - Users routes
  *     requestBody:
@@ -110,7 +86,7 @@
 
            /**
  * @swagger
- * /api/v1/mybrand/users:
+ * /api/v1/users:
  *  post:
  *     summary: User register
  *     tags:
@@ -295,7 +271,7 @@
  */
             /**
  * @swagger
- * /api/v1/mybrand/querries:
+ * /api/v1/querries:
  *  post:
  *     summary: Posting queries
  *     tags:
@@ -319,7 +295,7 @@
 
    /**
  * @swagger
- * /api/v1/mybrand/querries:
+ * /api/v1/querries:
  *   get:
  *     security:
  *       - Authorization: []
@@ -336,7 +312,7 @@
 
  /**
  * @swagger
- * /api/v1/mybrand/querries/{querryId}:
+ * /api/v1/querries/{querryId}:
  *   delete:
  *     security:
  *       - Authorization: []

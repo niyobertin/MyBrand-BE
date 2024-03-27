@@ -105,22 +105,6 @@ const userLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(err.message);
     }
 });
-const adminLogin = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const valid = joiValidation_1.default.validateUsersData(req.body);
-        const { email } = req.body;
-        const user = user_1.default.findOne({ email: email });
-        if (!user) {
-            return false;
-        }
-        else {
-            return user;
-        }
-    }
-    catch (err) {
-        throw new Error(err.message);
-    }
-});
 const retrieve = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         return yield user_1.default.find();
@@ -141,7 +125,6 @@ const gettingLoggedInUser = () => __awaiter(void 0, void 0, void 0, function* ()
 exports.default = {
     users_register,
     userLogin,
-    adminLogin,
     gettingLoggedInUser,
     retrieve
 };

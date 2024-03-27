@@ -12,42 +12,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAllLikes = exports.dislike = exports.getSingleLike = exports.createLike = void 0;
 const like_1 = __importDefault(require("../models/like"));
-const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
-const create_likes = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    const valid = joiValidation_1.default.likesValidatin(req.body);
-    const id = { _id: req.params.id };
-    if (valid.error) {
-        return false;
-    }
-    else {
-        const created_likes = new like_1.default({
-            like: req.body.like,
-            blogID: id
-        });
-        yield created_likes.save();
-    }
+const createLike = (id, user) => __awaiter(void 0, void 0, void 0, function* () {
+    const Like = yield like_1.default.create({
+        blog: id,
+        user: user,
+    });
+    return Like;
 });
-const fetchlikes = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const id = { _id: req.params.id };
-        return yield like_1.default.find({ blogID: id });
-    }
-    catch (error) {
-        throw new Error(error.message);
-    }
+exports.createLike = createLike;
+const getSingleLike = (blogId, userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const like = yield like_1.default.findOne({ blog: blogId, user: userId });
+    return like;
 });
-const remove_likes = (req) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const id = { _id: req.params.id };
-        return yield like_1.default.deleteOne(id);
-    }
-    catch (error) {
-        throw new Error(error.message);
-    }
+exports.getSingleLike = getSingleLike;
+const dislike = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const like = yield like_1.default.findByIdAndDelete(id);
+    return null;
 });
-exports.default = {
-    create_likes,
-    fetchlikes,
-    remove_likes
-};
+exports.dislike = dislike;
+const getAllLikes = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const likes = yield like_1.default.find({ blog: id });
+    return likes;
+});
+exports.getAllLikes = getAllLikes;

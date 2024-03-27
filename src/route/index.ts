@@ -8,6 +8,6 @@ const router = express.Router();
 router.use('/blogs',blogRoute);
 router.use("/blogs",commentsRoutes);
 router.use("/blogs",likeRoutes);
-router.use("/mybrand",querriesRoutes);
-router.use("/mybrand",usersRoutes);
+router.use("/",querriesRoutes);
+router.use("/",usersRoutes);
 export default router;

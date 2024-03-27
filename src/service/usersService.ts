@@ -66,20 +66,6 @@ const userLogin = async(req:Request) => {
         throw new Error(err.message)
     }
 }
-const adminLogin = async(req:Request) => {
-    try{
-        const valid = joiValidation.validateUsersData(req.body);
-        const {email} = req.body;
-        const user:any = Users.findOne({email:email});
-        if(!user){
-            return false
-        }else{
-            return user;
-        }
-    }catch(err:any){
-        throw new Error(err.message)
-    }
-}
 const retrieve = async() =>{
     try{
         return await Users.find();
@@ -99,7 +85,6 @@ const gettingLoggedInUser = async() => {
 export default {
     users_register,
     userLogin,
-    adminLogin,
     gettingLoggedInUser,
     retrieve
 }

@@ -1,0 +1,92 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>blogsController.ts</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\controller\blogsController.ts</td><td class="">84.25%</td><td class="">80%</td><td class="">127</td><td class="">107</td><td class="">20</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import { Request,Response } from &quot;express&quot;;
+import blogsService from &quot;../service/blogService&quot;
+import blogCervice from &quot;../service/blogService&quot;;
+import joiValidation from &quot;../helper/joiValidation&quot;;
+
+const create_blogs = async(req:Request,res:Response) =&gt; {
+    try{
+        const valid = joiValidation.validateBlogData(req.body);
+        const blogs = await blogsService.createBlogs(req)
+        if(!blogs){
+            res.status(400).json({
+                status:400,
+                message:valid.error?.message
+            });
+        }else{
+            res.status(201).json({
+                status:201,
+                message:&#x27;New blog created&#x27;
+            });
+        }
+        
+    }catch(error:any){
+        res.send(error.message);
+    }
+}
+
+const getAllBlogs = async(req:Request,res:Response) =&gt; {
+    const blogs:any = await blogsService.retrieveBlogs();
+    if(blogs.length &lt; 1){
+        res.status(404).json({status:404, blogs:blogs })
+    }else{
+        res.status(200).json({status:200, blogs:blogs })
+    }
+}
+
+const getSingleBlog = async(req:Request,res:Response) =&gt; {
+    const blogs:any = await blogCervice.retrieveSingleBlogs(req);
+    if(!blogs){
+        res.status(404).json({status:404, blogs:&quot;Not Found&quot; })
+    }else{
+        res.status(200).json({status:200, blogs:blogs })
+    }
+}
+
+const updatedBlogs = async(req:Request,res:Response) =&gt;{
+    const updateBlg = await blogCervice.updateBlogs(req);
+    if(!updateBlg){
+        res.status(404).json({status:404, blogs:&quot;Not Found&quot; })
+    }else{
+        res.status(201).json({
+            status:201,
+            message:&#x27;Blog Updated&#x27;
+        });
+    }
+}
+
+const removeBlogs = async(req:Request,res:Response) =&gt;{
+    const deleted:any = await blogCervice.removeBlogs(req);
+    if(deleted.deletedCount === 0){
+        res.status(404).json({status:404, blogs:&quot;Not Found&quot; })
+    }else{
+        res.status(200).json({
+            status:200,
+            message:&#x27;Blog deleted&#x27;
+        });
+    }
+}
+
+export default {
+    create_blogs,
+    getAllBlogs,
+    getSingleBlog,
+    updatedBlogs,
+    removeBlogs
+}</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:7,&quot;character&quot;:57,&quot;text&quot;:&quot;body&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:17,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:22,&quot;character&quot;:23,&quot;text&quot;:&quot;message&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:21,&quot;character&quot;:11,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:27,&quot;character&quot;:10,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:28,&quot;character&quot;:7,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:28,&quot;character&quot;:13,&quot;text&quot;:&quot;length&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:29,&quot;character&quot;:42,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:29,&quot;character&quot;:48,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:31,&quot;character&quot;:42,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:31,&quot;character&quot;:48,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:36,&quot;character&quot;:10,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:37,&quot;character&quot;:8,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:40,&quot;character&quot;:42,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:40,&quot;character&quot;:48,&quot;text&quot;:&quot;blogs&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:45,&quot;character&quot;:10,&quot;text&quot;:&quot;updateBlg&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:46,&quot;character&quot;:8,&quot;text&quot;:&quot;updateBlg&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:57,&quot;character&quot;:10,&quot;text&quot;:&quot;deleted&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:58,&quot;character&quot;:7,&quot;text&quot;:&quot;deleted&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\controller\\blogsController.ts&quot;,&quot;line&quot;:58,&quot;character&quot;:15,&quot;text&quot;:&quot;deletedCount&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Mon, 25 Mar 2024 16:23:52 GMT</p>
+    </body>
+  </html>
+  

@@ -67,40 +67,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     accessToken = jwt_1.default.createToken(user);
                     res.status(200).json({
                         status: 200,
-                        token: accessToken
-                    });
-                }
-            });
-        }
-    }
-    catch (err) {
-        throw new Error(err.message);
-    }
-});
-const adminLogin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const valid = joiValidation_1.default.validateUsersData(req.body);
-        const { password } = req.body;
-        const user = yield usersService_1.default.adminLogin(req);
-        if (!user) {
-            res.status(404).json({
-                status: 404,
-                message: 'User Not Found ! Please Register new ancount '
-            });
-        }
-        else {
-            bcrypt_1.default.compare(password, user.password)
-                .then((match) => {
-                if (!match) {
-                    res.status(400).json({
-                        status: 400,
-                        message: 'Bad combination of email and password!'
-                    });
-                }
-                else {
-                    accessToken = jwt_1.default.createToken(user);
-                    res.status(200).json({
-                        status: 200,
+                        message: "Logged in",
                         token: accessToken
                     });
                 }
@@ -129,6 +96,5 @@ const allusers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.default = {
     register,
     login,
-    adminLogin,
     allusers
 };

@@ -12,51 +12,47 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const likeService_1 = __importDefault(require("../service/likeService"));
-const joiValidation_1 = __importDefault(require("../helper/joiValidation"));
-// //creating a comments
-const createLikes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+exports.getLikes = exports.like = void 0;
+const blogService_1 = __importDefault(require("../service/blogService"));
+const user_1 = __importDefault(require("../models/user"));
+const likeService_1 = require("../service/likeService");
+const like = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield user_1.default.findOne({ email: req.body.email });
     try {
-        const valid = joiValidation_1.default.likesValidatin(req.body);
-        const like = yield likeService_1.default.create_likes(req);
-        if (valid.error) {
-            res.status(400).json({
-                status: 400,
-                message: (_a = valid.error) === null || _a === void 0 ? void 0 : _a.message
-            });
+        const id = req.params.id;
+        const existingLike = yield (0, likeService_1.getSingleLike)(id, user._id);
+        if (existingLike) {
+            yield (0, likeService_1.dislike)(existingLike._id);
+            res.status(200).json({ status: "success", message: "Like removed successfully" });
         }
         else {
-            res.status(201).json({
-                status: 201,
-                message: 'New like created'
+            const blog = yield blogService_1.default.retrieveSingleBlogs(req);
+            if (!blog) {
+                return res.status(404).json({ status: "Error", message: "Blog not found" });
+            }
+            const Like = yield (0, likeService_1.createLike)(id, user._id);
+            res.status(200).json({
+                status: 200,
+                message: "your like was added"
             });
         }
     }
     catch (error) {
-        res.send(error.message);
+        res.status(400).json({ message: error.message });
     }
 });
-const getLikesBasedOnBlogId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const likes = yield likeService_1.default.fetchlikes(req);
-    if (likes.length < 1) {
-        res.status(200).json({ status: 200, likes: likes });
+exports.like = like;
+const getLikes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const likes = yield (0, likeService_1.getAllLikes)(req.params.id);
+        res.status(200).json({
+            status: "success",
+            likes: likes.length,
+            data: likes
+        });
     }
-    else {
-        res.status(200).json({ status: 200, likes: likes });
-    }
-});
-const removeLikes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const likes = yield likeService_1.default.remove_likes(req);
-    if (likes.deletedCount === 0) {
-        res.status(404).json({ status: 404, likes: 'Not Found' });
-    }
-    else {
-        res.status(200).json({ status: 200, likes: "Like deleted !" });
+    catch (err) {
+        res.status(400).json({ error: err.message });
     }
 });
-exports.default = {
-    createLikes,
-    getLikesBasedOnBlogId,
-    removeLikes
-};
+exports.getLikes = getLikes;

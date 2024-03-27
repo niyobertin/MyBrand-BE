@@ -50,28 +50,3 @@ describe("/api/v1/blogs/65f9b80b46b4681aa413adb5/comments", () => {
         throw new Error(err.message);
     }
 });
-describe("/api/v1/blogs/65f9b80b46b4681aa413adb5/likes", () => {
-    try {
-        it("Should retrun stutas 201 to indicate that new like added", () => __awaiter(void 0, void 0, void 0, function* () {
-            const likes = { like: true };
-            const res = yield request.post("/api/v1/blogs/65f9b80b46b4681aa413adb5/likes")
-                .send(likes);
-            expect({ likes: true });
-            expect(res.status).toBe(201);
-        }));
-    }
-    catch (err) {
-        throw new Error(err.message);
-    }
-});
-describe("/api/v1/blogs/65f9b80b46b4681aa413adb5/likes", () => {
-    try {
-        it("Should return status code 200 to indicate ok", () => __awaiter(void 0, void 0, void 0, function* () {
-            const res = yield request.get("/api/v1/blogs/65f9b80b46b4681aa413adb5/likes");
-            expect(res.status).toBe(200);
-        }));
-    }
-    catch (err) {
-        throw new Error(err.message);
-    }
-});

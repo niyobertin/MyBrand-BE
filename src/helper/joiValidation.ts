@@ -39,7 +39,7 @@ const validateUsersData = (register:{username:String,email:String,password:strin
 //like validation 
 const likesValidatin = (likes:{like:boolean}) => {
     const likesSchema = Joi.object({
-        like:Joi.boolean().required()
+        userId:Joi.string().required()
     });
     return likesSchema.validate(likes);
 }

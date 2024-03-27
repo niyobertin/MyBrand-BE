@@ -44,7 +44,7 @@ const validateUsersData = (register) => {
 //like validation 
 const likesValidatin = (likes) => {
     const likesSchema = joi_1.default.object({
-        like: joi_1.default.boolean().required()
+        userId: joi_1.default.string().required()
     });
     return likesSchema.validate(likes);
 };

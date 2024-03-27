@@ -42,26 +42,26 @@ describe('Log in', () => {
             email: "niyonkurubbertin@gmail.com",
             password: `${process.env.ADMIN_PASSWORD}`,
         };
-        const response = yield request.post("/api/v1/mybrand/users/admin/login")
+        const response = yield request.post("/api/v1/users/login")
             .send(loggedInUser);
         expect(response.status).toBe(200);
         token = response.body.token;
     }));
 });
-describe("/api/v1/mybrand/querries", () => {
+describe("/api/v1/querries", () => {
     it('should retrun 200 to indicate retreaving data sucessifull', () => __awaiter(void 0, void 0, void 0, function* () {
-        const res = yield request.get("/api/v1/mybrand/querries")
+        const res = yield request.get("/api/v1/querries")
             .set('Authorization', `Bearer ${token}`);
         expect(res.status).toBe(200);
     }));
     it('Shoul return 401 when no token provided', () => __awaiter(void 0, void 0, void 0, function* () {
-        const res = yield request.get("/api/v1/mybrand/querries");
+        const res = yield request.get("/api/v1/querries");
         expect(res.status).toBe(401);
     }));
 });
-describe("/api/v1/mybrand/querries", () => {
+describe("/api/v1/querries", () => {
     it('should retrun 200', () => __awaiter(void 0, void 0, void 0, function* () {
-        const res = yield request.get("/api/v1/mybrand/querries")
+        const res = yield request.get("/api/v1/querries")
             .set('Authorization', `Bearer ${token}`);
         expect(res.status).toBe(200);
     }));
