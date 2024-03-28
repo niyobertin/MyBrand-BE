@@ -68,6 +68,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     res.status(200).json({
                         status: 200,
                         message: "Logged in",
+                        role: user.role,
                         token: accessToken
                     });
                 }
