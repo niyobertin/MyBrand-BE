@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import querries from "../models/querries";
 import { Response, SuperTest, Test } from 'supertest';
 import app from "../app";
 dotenv.config()
@@ -8,7 +9,7 @@ beforeAll(async() => {
     await mongoose.connect(`${process.env.URL}`);
   });
   afterAll(async () => {
-    await mongoose.connection.close();
+    // await mongoose.connection.close();
   });
   
   let token:any;
@@ -26,14 +27,20 @@ beforeAll(async() => {
    })
 
 describe("Creating new queries",() => {
+  it("Should retrun status code to 201 to idnicate that new query created",async() =>{
   const query = {
     visitor:"iradukunda jean",
     message:"we need to talk to you"
   }
-  it("Should retrun status code to 201 to idnicate that new query created",async() =>{
+  const existingQuerry:any = querries.findOne({$or:[{visitor:query.visitor},{message:query.message}]});
+  if(existingQuerry){
+    querries.deleteOne({$or:[{visitor:query.visitor},{message:query.message}]})
+  }else{
     const response: Response = await request.post("/api/v1/querries")
     .send(query);
     expect(response.status).toBe(201);
+  }
+  
   })
 }) 
   

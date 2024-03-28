@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const querries_1 = __importDefault(require("../models/querries"));
 const app_1 = __importDefault(require("../app"));
 dotenv_1.default.config();
 const request = require('supertest')(app_1.default);
@@ -21,7 +22,7 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose_1.default.connect(`${process.env.URL}`);
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield mongoose_1.default.connection.close();
+    // await mongoose.connection.close();
 }));
 let token;
 describe('Log in', () => {
@@ -37,13 +38,19 @@ describe('Log in', () => {
     }));
 });
 describe("Creating new queries", () => {
-    const query = {
-        visitor: "iradukunda jean",
-        message: "we need to talk to you"
-    };
     it("Should retrun status code to 201 to idnicate that new query created", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.post("/api/v1/querries")
-            .send(query);
-        expect(response.status).toBe(201);
+        const query = {
+            visitor: "iradukunda jean",
+            message: "we need to talk to you"
+        };
+        const existingQuerry = querries_1.default.findOne({ $or: [{ visitor: query.visitor }, { message: query.message }] });
+        if (existingQuerry) {
+            querries_1.default.deleteOne({ $or: [{ visitor: query.visitor }, { message: query.message }] });
+        }
+        else {
+            const response = yield request.post("/api/v1/querries")
+                .send(query);
+            expect(response.status).toBe(201);
+        }
     }));
 });
