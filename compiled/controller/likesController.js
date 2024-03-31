@@ -33,7 +33,8 @@ const like = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             const Like = yield (0, likeService_1.createLike)(id, user._id);
             res.status(200).json({
                 status: 200,
-                message: "your like was added"
+                message: "your like was added",
+                user: user._id
             });
         }
     }
