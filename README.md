@@ -4,7 +4,7 @@
 
 My brand backend
 
-High there,
+Hi there,
 
 This is a Branding based API that provides the content in front of blogs. 
 It gives the options to like,commenting and sending message to the owner 
