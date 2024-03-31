@@ -52,36 +52,35 @@ const retrieveSingleBlogs = (req) => __awaiter(void 0, void 0, void 0, function*
         throw new Error(error.message);
     }
 });
-const updateBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
+const updateBlog = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let blogimg;
+        let blogImgUrl = null;
         if (req.file) {
-            blogimg = yield (0, cloudinary_1.uploadToCloud)(req.file);
+            blogImgUrl = yield (0, cloudinary_1.uploadToCloud)(req.file); // Upload the image to cloud storage
         }
-        else {
-            blogimg = null;
-        }
-        const id = { _id: req.params.id };
-        const update_blogs = yield blogs_1.default.findOne(id);
-        if (!update_blogs) {
-            return false;
+        const blogId = req.params.id;
+        const blog = yield blogs_1.default.findById(blogId);
+        if (!blog) {
+            return 'Blog not found';
         }
         else {
             if (req.body.title) {
-                update_blogs.title = req.body.title;
-            }
-            if (req.body.image) {
-                update_blogs.image = blogimg;
+                blog.title = req.body.title;
             }
             if (req.body.content) {
-                update_blogs.content = req.body.content;
+                blog.content = req.body.content;
+            }
+            if (blogImgUrl) {
+                blog.image = blogImgUrl; // Update the image URL
             }
         }
-        yield update_blogs.save();
-        return update_blogs;
+        // Save the updated blog
+        yield blog.save();
+        // Send success response
     }
     catch (error) {
-        throw new Error(error.message);
+        // Handle errors
+        console.error('Error updating blog:', error);
     }
 });
 const removeBlogs = (req) => __awaiter(void 0, void 0, void 0, function* () {
@@ -103,6 +102,6 @@ exports.default = {
     createBlogs,
     retrieveBlogs,
     retrieveSingleBlogs,
-    updateBlogs,
+    updateBlog,
     removeBlogs
 };
