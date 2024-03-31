@@ -21,7 +21,7 @@ beforeAll(async() => {
    
    describe("Get single blog",()=>{
     it("Should return status code 200 to indicate ok for obtained single blog",async() =>{
-      const response: Response = await request.get("/api/v1/blogs/6606bc8625d4178d97bd9365");
+      const response: Response = await request.get("/api/v1/blogs/660983fd1051d6c02d237691");
       expect(response.status).toBe(200);
     })
   })
