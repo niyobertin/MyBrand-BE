@@ -57,15 +57,15 @@ const getSingleBlog = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 });
 const updatedBlogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const updateBlg = yield blogService_2.default.updateBlogs(req);
+        const updateBlg = yield blogService_2.default.updateBlog(req);
         if (!updateBlg) {
-            res.status(404).json({ status: 404, blogs: "Not Found" });
-        }
-        else {
             res.status(201).json({
                 status: 201,
                 message: 'Blog Updated'
             });
+        }
+        else {
+            res.status(404).json({ status: 404, blogs: "Not Found" });
         }
     }
     catch (error) {

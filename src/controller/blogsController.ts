@@ -44,14 +44,14 @@ const getSingleBlog = async(req:Request,res:Response) => {
 
 const updatedBlogs = async(req:Request,res:Response) =>{
     try {
-        const updateBlg = await blogCervice.updateBlogs(req);
+        const updateBlg = await blogCervice.updateBlog(req);
     if(!updateBlg){
-        res.status(404).json({status:404, blogs:"Not Found" })
-    }else{
         res.status(201).json({
             status:201,
             message:'Blog Updated'
         });
+    }else{
+        res.status(404).json({status:404, blogs:"Not Found" })
     }
     } catch (error:any) {
     res.status(500).json({
