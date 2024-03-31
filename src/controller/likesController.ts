@@ -18,7 +18,8 @@ export const like = async (req: Request, res: Response) => {
       const Like = await createLike(id, user._id);
       res.status(200).json({
         status: 200,
-        message: "your like was added"
+        message: "your like was added",
+        user:user._id
       });
     }
   } catch (error: any) {
