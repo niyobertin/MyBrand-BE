@@ -31,7 +31,7 @@ describe("Get all blogs", () => {
 });
 describe("Get single blog", () => {
     it("Should return status code 200 to indicate ok for obtained single blog", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get("/api/v1/blogs/660983fd1051d6c02d237691");
+        const response = yield request.get("/api/v1/blogs/6609d0ca30dce451a76360be");
         expect(response.status).toBe(200);
     }));
 });
