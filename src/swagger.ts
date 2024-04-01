@@ -26,7 +26,6 @@ const options = {
     },
     servers: [
       {
-        // url: "https://mybrand-be-p2fh.onrender.com",
         description: "Live server"
       },
     ]
