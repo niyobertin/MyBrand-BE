@@ -26,7 +26,6 @@ const options = {
     },
     servers: [
       {
-        url:"",
         description: "Live server"
       },
     ]
