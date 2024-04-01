@@ -11,6 +11,9 @@ db
     app.use(express.json());
     app.use(cookieParser());
     app.use(cors());
+    app.use(cors({
+      origin: 'http://127.0.0.1:5500'
+    }));
     app.use("/api/v1",routes);
     app.options('/api/v1/blogs/:id', (req: Request, res: Response, next: NextFunction) => {
       res.setHeader('Access-Control-Allow-Origin', 'https://niyobertin.github.io');
