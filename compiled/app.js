@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const index_1 = __importDefault(require("./route/index"));
 const config_1 = __importDefault(require("./config/config"));
@@ -15,17 +14,14 @@ config_1.default;
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-app.use((0, cors_1.default)());
-app.use((0, cors_1.default)({
-    origin: 'http://127.0.0.1:5500'
-}));
-app.use("/api/v1", index_1.default);
-app.options('/api/v1/blogs/:id', (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://niyobertin.github.io');
-    res.setHeader('Access-Control-Allow-Methods', 'PATCH');
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
 });
+app.use("/api/v1", index_1.default);
 if (require.main === module) {
     const port = process.env.PORT || 3000;
     app.listen(port, () => {

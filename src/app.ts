@@ -10,17 +10,14 @@ db
     const app = express();
     app.use(express.json());
     app.use(cookieParser());
-    app.use(cors());
-    app.use(cors({
-      origin: 'http://127.0.0.1:5500'
-    }));
-    app.use("/api/v1",routes);
-    app.options('/api/v1/blogs/:id', (req: Request, res: Response, next: NextFunction) => {
-      res.setHeader('Access-Control-Allow-Origin', 'https://niyobertin.github.io');
-      res.setHeader('Access-Control-Allow-Methods', 'PATCH');
+    app.use((req: Request, res: Response, next: NextFunction) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
       next();
-    });
+  });
+    app.use("/api/v1",routes);
     if (require.main === module) {
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
