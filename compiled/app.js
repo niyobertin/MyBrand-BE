@@ -17,6 +17,12 @@ app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)());
 app.use("/api/v1", index_1.default);
+app.options('/api/v1/blogs/:id', (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://niyobertin.github.io');
+    res.setHeader('Access-Control-Allow-Methods', 'PATCH');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 if (require.main === module) {
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
