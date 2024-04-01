@@ -118,7 +118,7 @@
      /**
  * @swagger
  * '/api/v1/blogs/{blogId}':
- *  patch:
+ *  put:
  *     security:
  *       - Authorization: []
  *     summary: Update a blog

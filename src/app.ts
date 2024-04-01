@@ -10,6 +10,7 @@ db
     const app = express();
     app.use(express.json());
     app.use(cookieParser());
+    app.use(cors());
     app.use((req: Request, res: Response, next: NextFunction) => {
       res.setHeader('Access-Control-Allow-Origin', 'https://niyobertin.github.io'); 
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE,OPTIONS');
@@ -17,10 +18,6 @@ db
       res.setHeader('Access-Control-Allow-Credentials', 'true');
       next();
   });
-  // Handle preflight OPTIONS requests for PATCH
-    app.options('/*', (req: Request, res: Response) => {
-      res.sendStatus(200); // Respond with 200 OK status
-    });
     app.use("/api/v1",routes);
     if (require.main === module) {
         const port = process.env.PORT || 3000;
