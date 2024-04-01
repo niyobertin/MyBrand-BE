@@ -12,10 +12,14 @@ const config_1 = __importDefault(require("./config/config"));
 const swagger_1 = __importDefault(require("./swagger"));
 dotenv_1.default.config();
 config_1.default;
+const corsOptions = {
+    origin: 'https://niyobertin.github.io'
+};
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)());
+app.use((0, cors_1.default)(corsOptions));
 app.use("/api/v1", index_1.default);
 if (require.main === module) {
     const port = process.env.PORT || 3000;
