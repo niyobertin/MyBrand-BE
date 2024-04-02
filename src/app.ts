@@ -10,6 +10,7 @@ db
     const app = express();
     app.use(express.json());
     app.use(cookieParser());
+    app.use(cors());
     app.use("/api/v1",routes);
     if (require.main === module) {
         const port = process.env.PORT || 3000;
