@@ -5,7 +5,7 @@ dotenv.config();
 // import user from "../models/user";
 //Creating token func
 const createToken = (user:any) => {
-const accessToken = sign({ email:user.email,role:user.role},`${process.env.TOKEN_SCRET}`,{
+const accessToken = sign({ email:user.email,username:user.username,role:user.role},`${process.env.TOKEN_SCRET}`,{
     expiresIn:'24h'
 })
 return accessToken;
