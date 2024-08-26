@@ -1,7 +1,6 @@
-import {Request,Response,NextFunction} from "express";
+import {Request,Response} from "express";
 import userService from '../service/usersService';
 import joiValidation from "../helper/joiValidation";
-import {authotication,authoticateAdmin} from "../middleware/authMiddleware";
 import Jwt from "../helper/jwt";
 import bcrypt from "bcrypt"
 
@@ -37,7 +36,7 @@ const login = async(req:Request,res:Response) =>{
         if(!user){
             res.status(404).json({
                 status:404,
-                message:'User Not Found ! Please Register new ancount '
+                message:'Invald credentials '
             }); 
         }else{
              bcrypt.compare(password,user.password)
@@ -45,13 +44,13 @@ const login = async(req:Request,res:Response) =>{
                 if(!match){
                     res.status(400).json({
                         status:400,
-                        message:'Bad combination of email and password!'
+                        message:'Invald credentials!'
                     });
                 }else{
                     accessToken = Jwt.createToken(user);
                         res.status(200).json({
                             status:200,
-                            message:"Logged in",
+                            message:"Welcome !",
                             userId:user._id,
                             usersName:user.username,
                             email:user.email,

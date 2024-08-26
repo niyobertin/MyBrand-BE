@@ -32,7 +32,7 @@ const validateUsersData = (register:{username:String,email:String,password:strin
     const usersSchema = Joi.object({
         username:Joi.string().required().min(2),
         email:Joi.string().required().email(),
-        password:Joi.string().required().min(6).max(8)
+        password:Joi.string().required().min(8).max(20)
     });
     return usersSchema.validate(register);
 }
@@ -47,7 +47,7 @@ const likesValidatin = (likes:{like:boolean}) => {
 const loginValidation = (login:{email:String,password:String}) => {
     const loginSchema = Joi.object({
         email:Joi.string().required().email(),
-        password:Joi.string().required().min(6).max(8)
+        password:Joi.string().required().min(8).max(20)
     })
 
    return loginSchema.validate(login)
